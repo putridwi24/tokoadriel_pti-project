@@ -364,15 +364,15 @@ class User extends CI_Controller
     public function edit_obat($id)
     {
         
-        $data['title'] = 'Ubah Data Obat';
+        $data['title'] = 'Ubah Data Barang';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['obat'] = $this->Data_apotek->getObat($id);
+        $data['barang'] = $this->Data_apotek->getObat($id);
 
         $data['get_kat'] = $this->Data_apotek->get_kategori();
         $data['get_pemasok'] = $this->Data_apotek->get_pemasok();
         // $data['obat_edit'] = $this->Data_apotek->edit_data_obat('tb_obat');
 
-        $this->form_validation->set_rules('nama_obat', 'Nama Pemasok', 'required');
+        $this->form_validation->set_rules('nama_barang', 'Nama Pemasok', 'required');
         $this->form_validation->set_rules('penyimpanan', 'Penyimpanan', 'required');
         $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
         $this->form_validation->set_rules('nama_kat', 'Kategori', 'required');

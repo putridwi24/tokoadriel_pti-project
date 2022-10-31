@@ -25,9 +25,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Pemasok</th>
+                            <th>Nama </th>
                             <th>Alamat</th>
-                            <th>No Telepon</th>
+                            <th>Telepon</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
