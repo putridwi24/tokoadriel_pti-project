@@ -9,7 +9,7 @@
                 <input type="hidden" name="id_pemasok" value="<?= $pemasok['id_pemasok']; ?>">
                 <div class="row justify-content-center pt-4" post>
                     <div class="col-2">
-                        <label for="nama_pemasok" class="col-form-label">Nama Pemasok</label>
+                        <label for="nama_pemasok" class="col-form-label">Nama Supplier</label>
                     </div>
                     <div class="col-3">
                         <input type="text" id="nama_pemasok" name="nama_pemasok" class="form-control"
@@ -31,7 +31,7 @@
 
                 <div class="row justify-content-center pt-2">
                     <div class="col-2">
-                        <label for="telepon" class="col-form-label">Nomor Telepon</label>
+                        <label for="telepon" class="col-form-label">No Telepon</label>
                     </div>
                     <div class="col-3">
                         <input type="text" id="telepon" name="telepon" class="form-control"
@@ -42,11 +42,13 @@
 
                 <div class="row justify-content-center pt-4 pb-4">
                     <div class="col-1">
+                        <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
                         <a href="<?= base_url('user/lihat_pemasok')?>"><button type="button" class="btn btn-danger"
                                 name="batal" id="batal">Batal</button></a>
                     </div>
                     <div class="col-1">
-                        <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
+                    <a href="<?= base_url('user/lihat_pemasok')?>"><button type="button" class="btn btn-danger"
+                                name="batal" id="batal">Batal</button></a>
                     </div>
                 </div>
             </form>

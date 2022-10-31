@@ -14,34 +14,32 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Kode Referensi</th>
-                            <th>Nama Obat</th>
+                            <th>Tanggal Transaksi</th>
+                            <th>No</th>
                             <th>Nama Pemasok</th>
-                            <th>Tanggal Beli</th>
-                            <th>Harga Beli</th>
                             <th>Banyak</th>
-                            <th>Total</th>
+                            <th>Total Pembelian</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $i = 1;
                         foreach ($tb_beli as $data) : 
                     ?>
                         <tr>
-                            <td><?= $data->ref; ?></td>
-                            <td><?= $data->nama_obat; ?></td>
+                            </td> <td><?= date('j F Y',strtotime($data->tgl_beli)); ?></td>
+                            <td><?= $i++; ?></td>
                             <td><?= $data->nama_pemasok; ?></td>
-                            <td><?= date('j F Y',strtotime($data->tgl_beli)); ?></td>
-                            <td>Rp <?= number_format($data->h_beli); ?></td>
                             <td><?= $data->banyak; ?></td>
                             <td>Rp <?php echo number_format($data->grandtotal) ?></td>
                             <td>
                                 <a href="<?= base_url('user/lihat_nota_pembelian/'). $data->ref?>"><button type="button"
                                         class="sbtn btn-success"><i class="fas fa-file-invoice"></i></button></a>
 
-                                <!-- <a href="<?= base_url('user/hapus_pembelian/'). $data->id_beli?>"><button type="delete"
-                                        class="sbtn btn-danger"><i class="fas fa-trash"></i></button></a> -->
+                                <a href="<?= base_url('user/hapus_pembelian/'). $data->ref?>"><button type="delete"
+                                        class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i
+                                            class="fas fa-trash"></i></button></a>
                             </td>
                         </tr>
 

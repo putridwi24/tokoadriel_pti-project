@@ -47,7 +47,7 @@
                         <table id="pembelian" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center">Obat yang dibeli</th>
+                                    <th style="text-align: center">Barang yang dibeli</th>
                                     <th style="text-align: center">Sisa Stok</th>
                                     <th style="text-align: center">Kategori</th>
                                     <th style="text-align: center">Harga</th>
@@ -62,7 +62,7 @@
                             <tfoot>
                                 <tr>
                                     <td style="text-align:right; vertical-align: middle" colspan="5">
-                                        <b>Grandtotal</b>
+                                        <b>Total Pembelian</b>
                                     </td>
                                     <td>
                                         <input id="grandtotal" name="grandtotal" type="text"

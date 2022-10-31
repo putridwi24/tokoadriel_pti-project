@@ -6,15 +6,15 @@
         <div class="x_content">
 
             <form action="" method="post" class="form-horizontal form-label-left" novalidate>
-                <input type="hidden" name="id" id="id" value="<?= $obat['id']; ?>">
+                <input type="hidden" name="id" id="id" value="<?= $barang['id']; ?>">
                 <div class="row justify-content-center pt-4" post>
                     <div class="col-2">
-                        <label for="nama_obat" class="col-form-label">Nama Obat</label>
+                        <label for="nama_barang" class="col-form-label">Nama Obat</label>
                     </div>
                     <div class="col-3">
-                        <input type="text" id="nama_obat" name="nama_obat" class="form-control"
-                            value="<?= $obat['nama_obat']; ?>">
-                        <?= form_error('nama_obat', '<small class="text-danger pl-3">' ,'</small>'); ?>
+                        <input type="text" id="nama_barang" name="nama_barang" class="form-control"
+                            value="<?= $barangt['nama_barang']; ?>">
+                        <?= form_error('nama_barang', '<small class="text-danger pl-3">' ,'</small>'); ?>
                     </div>
                 </div>
 
