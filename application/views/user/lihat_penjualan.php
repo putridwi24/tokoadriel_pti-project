@@ -15,7 +15,7 @@
                             <th>Kode Referensi</th>
                             <th>Nama Pembeli</th>
                             <th>Tanggal Jual</th>
-                            <th>Nama Obat</th>
+                            <th>Nama Barang</th>
                             <th>Harga Jual</th>
                             <th>Banyak</th>
                             <th>Total</th>
@@ -37,8 +37,9 @@
                             <td style=" text-align: center;">
                                 <a href="<?= base_url('user/lihat_nota_penjualan/'). $data->ref?>"><button type="button"
                                         class="sbtn btn-success"><i class="fas fa-file-invoice"></i></button></a>
-                                <!-- <a href="<?= base_url('user/edit_penjualan/'). $data->id_jual?>"><button type="edit"
-                                        class="sbtn btn-success"><i class="fas fa-edit"></i></button></a> -->
+                                <a href="<?= base_url('user/hapus_penjualan/'). $data->ref?>"><button type="delete"
+                                        class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i
+                                            class="fas fa-trash"></i></button></a>
 
                                 <!-- <a href="<?= base_url('user/hapus_penjualan/'). $data->id_jual?>"><button type="delete"
                                         class="sbtn btn-danger"><i class="fas fa-trash"></i></button></a> -->

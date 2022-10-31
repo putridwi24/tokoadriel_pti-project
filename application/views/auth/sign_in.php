@@ -28,14 +28,17 @@
                             <?= form_error('email', '<small class="text-danger pl-3">','</small>'); ?></small>
                         </div>
                         <div class="form-group">
+                        <td>Username</td>
+                            <input type="username" class="form-control form-control-user" id="username"
+                                name="username" placeholder="Masukkan Username">
+                            <?= form_error('username', '<small class="text-danger pl-3">','</small>'); ?></small>
+                        </div>
+                        <div class="form-group">
                         <td>Password</td>
                             <input type="password" class="form-control form-control-user" id="password"
-                                name="password" placeholder="Password">
+                                name="password" placeholder="Masukkan Password">
                             <?= form_error('password', '<small class="text-danger pl-3">','</small>'); ?></small>
                         </div>
-                        <button type="submit" class="btn btn-user btn-block"
-                            style="background: #469176; border:#57AD9E; color:white; ">
-                            Login
                         </button>
                         <button type="submit" class="btn btn-user btn-block"
                             style="background: #469176; border:#57AD9E; color:white; ">
@@ -43,8 +46,9 @@
                         </button>
                     </form>
                     <hr>
-                    <div class="text-right">
-                            <a class="small" href="forgot-password.html">Lupa Password?</a>
+
+                        <div class="text-center">
+                            <a class="small"  href="<?= base_url('auth'); ?>"> Sudah Punya Akun? Login!</a>
                         </div>
                     <!-- <div class="text-center">
                         <a class="small" href="forgot-password.html">Lupa Password?</a>

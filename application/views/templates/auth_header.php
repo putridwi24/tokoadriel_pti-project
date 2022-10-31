@@ -24,4 +24,4 @@
 
 </head>
 
-<body style="background:#57AD9E ;">
+<body style="background:#ffffff;">

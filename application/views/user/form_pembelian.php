@@ -62,7 +62,7 @@
                             <tfoot>
                                 <tr>
                                     <td style="text-align:right; vertical-align: middle" colspan="5">
-                                        <b>Grandtotal</b>
+                                        <b>Total Pembelian</b>
                                     </td>
                                     <td>
                                         <input id="grandtotal" name="grandtotal" type="text"
