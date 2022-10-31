@@ -14,17 +14,11 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-<<<<<<< HEAD
                             <th>Kode Referensi</th>
                             <th>Nama Barang</th>
                             <th>Nama Supplier</th>
                             <th>Tanggal Beli</th>
                             <th>Harga Beli</th>
-=======
-                            <th>Tanggal Transaksi</th>
-                            <th>No</th>
-                            <th>Nama Pemasok</th>
->>>>>>> 526929c0d7cc9a326262bda8839b31c2f6a8917d
                             <th>Banyak</th>
                             <th>Total Pembelian</th>
                             <th>Aksi</th>

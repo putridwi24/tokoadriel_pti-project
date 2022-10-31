@@ -489,11 +489,7 @@ class User extends CI_Controller
         
         $data['title'] = 'Ubah Data Barang';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-<<<<<<< HEAD
         $data['barang'] = $this->Data_adriel->getBarang($id);
-=======
-        $data['barang'] = $this->Data_apotek->getObat($id);
->>>>>>> 526929c0d7cc9a326262bda8839b31c2f6a8917d
 
         $data['get_kat'] = $this->Data_adriel->get_kategori();
         $data['get_pemasok'] = $this->Data_adriel->get_pemasok();
