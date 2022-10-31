@@ -1,0 +1,44 @@
+<!-- DataTales Example -->
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-dark"><?= $title; ?></h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <!-- notifikasi data berhasil ditambahkan -->
+                <?php if ($this->session->flashdata('flash') ) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Data Kategori <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php endif; ?>
+
+                <!-- button tambah kategori -->
+                <a href="<?php echo base_url('user/form_kategori'); ?>"><button class="btn btn-success mb-3">
+                        <i class="fas fa-plus"> Unduh Laporan</i></button></a>
+
+                <!-- tabel kategori -->
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Bulan</th>
+                            <th>Pembelian</th>
+                            <th>Penjualan</th>
+                            <th>Laba</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                   
+                  
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="<?= base_url('assets/');?>vendor/moment/min/moment.min.js">
+</script>
