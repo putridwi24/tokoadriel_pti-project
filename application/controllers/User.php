@@ -252,6 +252,37 @@ class User extends CI_Controller
         }
     }
 
+    public function form_tambahbarang()
+    {
+        $data['title'] = 'Tambah Barang';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $data['get_kat'] = $this->Data_apotek->get_kategori();
+        $data['get_supplier'] = $this->Data_apotek->get_supplier();
+
+        $this->form_validation->set_rules('nama_barang', 'Nama Produk', 'required');
+        $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
+        $this->form_validation->set_rules('nama_kat', 'Kategori', 'required');
+        $this->form_validation->set_rules('kedaluwarsa', 'Kedaluwarsa', 'required');
+        $this->form_validation->set_rules('harga_jual', 'Harga Jual', 'required|numeric');
+        $this->form_validation->set_rules('harga_beli', 'Harga Beli', 'required|numeric');
+        $this->form_validation->set_rules('nama_supplier', 'Nama Supplier', 'required');
+ 
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('user/form_tambahbarang', $data);
+            $this->load->view('templates/footer');
+        }
+        else {
+            $this->Data_apotek->tambah_obat();
+            $this->session->set_flashdata('flash','ditambahkan');
+            redirect('user/lihat_obat');
+        }
+    }
+
             // method form kategori
     public function form_kategori()
     {

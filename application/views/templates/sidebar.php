@@ -26,6 +26,12 @@
     <!-- Divider Garis -->
     <hr class="sidebar-divider">
 
+    <!-- Nav Item - Kelola Data -->
+    <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('user/index')?>">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Beranda</span></a>
+    </li>
 
     <!-- Menu Obat -->
     <li class="nav-item <?php echo $this->uri->segment(2) == 'lihat_obat'||'form_obat'||'tabel_kedaluwarsa'||'tabel_stok' ? 'active': '' ?>">

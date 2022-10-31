@@ -210,6 +210,22 @@ class Data_apotek extends CI_Model
         return $data;
     }
 
+    function get_supplier()
+    {
+        $data = array();
+        $query = $this->db->get('tb_supplier')->result_array();
+
+        if( is_array($query) && count ($query) > 0 )
+        {
+        foreach ($query as $row ) 
+        {
+          $data[$row['nama_supplier']] = $row['nama_supplier'];
+        }
+        }
+        asort($data);
+        return $data;
+    }
+
 
     // edit data obat biar bisa muncul pemasok kategori
     public function edit_data_obat($table){      
@@ -299,14 +315,14 @@ class Data_apotek extends CI_Model
     }
 
     
-    function get_product($nama_obat)
+    function get_product($nama_barang)
     {  
         $hasil = array();
-        $hsl=$this->db->query("SELECT * FROM tb_obat WHERE nama_obat='$nama_obat'");
+        $hsl=$this->db->query("SELECT * FROM tb_barang WHERE nama_barang='$nama_barang'");
         if($hsl->num_rows()>0){
             foreach ($hsl->result() as $data) {
                 $hasil=array(
-                    'nama_obat' => $data->nama_obat,
+                    'nama_barang' => $data->nama_barang,
                     'stok' => $data->stok,
                     'nama_kat' => $data->nama_kat,
                     'h_jual' => $data->h_jual,
