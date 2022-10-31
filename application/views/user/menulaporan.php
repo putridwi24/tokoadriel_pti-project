@@ -6,7 +6,7 @@
     <!-- Body -->
     <div class="row pt-5" style="justify-content:center">
         <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('user/form_obat')?>" class="text-decoration-none">
+            <a href="<?= base_url('user/laporan_total')?>" class="text-decoration-none">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('user/form_kategori')?>" class="text-decoration-none">
+            <a href="<?= base_url('user/laporan_stok_barang')?>" class="text-decoration-none">
                 <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">

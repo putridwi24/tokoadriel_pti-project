@@ -2,7 +2,7 @@
 <footer class="sticky bg-white fixed-bottom">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Kelompok 3 PTI-RB <?= date('Y'); ?></span>
+            <span>Copyright &copy; Kelompok 4 PTI-RB <?= date('Y'); ?></span>
         </div>
     </div>
 </footer>

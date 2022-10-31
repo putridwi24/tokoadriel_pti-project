@@ -6,14 +6,14 @@ class Laporan_controller extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Laporan_model');
-        $this->load->model('Data_apotek');
+        $this->load->model('Data_adriel');
         $this->load->library('form_validation');
         $this->load->library('session');
 
-        $data['habis'] = $this->Data_apotek->countstock();
-        $data['expired'] = $this->Data_apotek->countexp();
-        $data['hampir_habis'] = $this->Data_apotek->hampir_habis();
-        $data['hampir_exp'] = $this->Data_apotek->hampir_kadal();
+        $data['habis'] = $this->Data_adriel->countstock();
+        $data['expired'] = $this->Data_adriel->countexp();
+        $data['hampir_habis'] = $this->Data_adriel->hampir_habis();
+        $data['hampir_exp'] = $this->Data_adriel->hampir_kadal();
         $this->load->view('templates/topbar', $data, true);
 
     }

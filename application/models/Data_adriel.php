@@ -4,10 +4,10 @@ use LDAP\Result;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Data_apotek extends CI_Model
+class Data_adriel extends CI_Model
 {
     // model ambil semua data table dari database
-    public function getDataApotek($table){
+    public function getDataAdriel($table){
         return $this->db->get($table)->result();
     }
 
@@ -42,27 +42,27 @@ class Data_apotek extends CI_Model
     }
 
     // method tambah pemasok
-    public function tambah_pemasok(){
+    public function tambah_supplier(){
 
         $data = [
-            'nama_pemasok' => $this->input->post('nama_pemasok', true),
-            'alamat_pemasok' => $this->input->post('alamat', true),
-            'telepon_pemasok' => $this->input->post('telepon', true),
+            'nama_supplier' => $this->input->post('nama_supplier', true),
+            'alamat_supplier' => $this->input->post('alamat', true),
+            'telepon_supplier' => $this->input->post('telepon', true),
         ];
 
-        $this->db->insert('tb_pemasok', $data);
+        $this->db->insert('tb_supplier', $data);
     }
  
 
     // GET HIDDEN ID untuk ubah data
-    public function getObat($id){
-        return $this->db->get_where('tb_obat', ['id' => $id])->row_array();
+    public function getBarang($id){
+        return $this->db->get_where('tb_barang', ['id' => $id])->row_array();
     }
     public function getKategori($id_kat){
         return $this->db->get_where('tb_kategori', ['id_kat' => $id_kat])->row_array();
     }
-    public function getPemasok($id_pemasok){
-        return $this->db->get_where('tb_pemasok', ['id_pemasok' => $id_pemasok])->row_array();
+    public function getSupplier($id_supplier){
+        return $this->db->get_where('tb_supplier', ['id_supplier' => $id_supplier])->row_array();
     }
 
     // KEDALUWARSA DAN STOK
@@ -266,16 +266,16 @@ class Data_apotek extends CI_Model
     }
 
         // method ubah pemasok
-    public function edit_pmasok(){
+    public function edit_supplier(){
 
         $data = [
-            'nama_pemasok' => $this->input->post('nama_pemasok', true),
-            'alamat_pemasok' => $this->input->post('alamat', true),
-            'telepon_pemasok' => $this->input->post('telepon', true),
+            'nama_supplier' => $this->input->post('nama_supplier', true),
+            'alamat_supplier' => $this->input->post('alamat', true),
+            'telepon_supplier' => $this->input->post('telepon', true),
         ];
 
-        $this->db->where('id_pemasok', $this->input->post('id_pemasok'));
-        $this->db->update('tb_pemasok', $data);
+        $this->db->where('id_supplier', $this->input->post('id_supplier'));
+        $this->db->update('tb_supplier', $data);
     }
 
 

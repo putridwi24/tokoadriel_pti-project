@@ -15,8 +15,8 @@
                     <thead>
                         <tr>
                             <th>Kode Referensi</th>
-                            <th>Nama Obat</th>
-                            <th>Nama Pemasok</th>
+                            <th>Nama Barang</th>
+                            <th>Nama Supplier</th>
                             <th>Tanggal Beli</th>
                             <th>Harga Beli</th>
                             <th>Banyak</th>

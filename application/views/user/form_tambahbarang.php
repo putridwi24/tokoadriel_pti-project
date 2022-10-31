@@ -44,7 +44,7 @@
 
                 <div class=" row justify-content-center pt-4 pb-4">
                     <div class="col-1">
-                        <a href="<?php echo base_url('user/lihat_kategori'); ?>"><button class="btn btn-danger"
+                        <a href="<?php echo base_url('user/lihat_produk'); ?>"><button class="btn btn-danger"
                                 type="button" name="batal" id="batal">Batal</button></a>
                     </div>
                     <div class="col-1">

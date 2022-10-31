@@ -18,108 +18,48 @@
 
     <!-- Nav Item - Beranda -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('user/index')?>">
+        <a class="nav-link" href="<?= base_url('user/beranda')?>">
             <i class="fas fa-fw fa-home"></i>
             <span>Beranda</span></a>
     </li>
-
-    <!-- Divider Garis -->
-    <hr class="sidebar-divider">
 
     <!-- Nav Item - Kelola Data -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('user/index')?>">
+        <a class="nav-link" href="<?= base_url('user/menukeloladata')?>">
             <i class="fas fa-fw fa-home"></i>
-            <span>Beranda</span></a>
+            <span>Kelola Data</span></a>
     </li>
 
-    <!-- Menu Obat -->
-    <li class="nav-item <?php echo $this->uri->segment(2) == 'lihat_obat'||'form_obat'||'tabel_kedaluwarsa'||'tabel_stok' ? 'active': '' ?>">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseObat" aria-expanded="true"
-            aria-controls="collapseObat">
-            <i class="fa fa-fw fa-medkit"></i>
-            <span>Obat</span>
-        </a>
-        <div id="collapseObat" class="collapse" aria-labelledby="headingObat" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item <?php echo $this->uri->segment(2) == 'form_obat' ? 'active': '' ?>" href="<?= base_url('user/form_obat')?>">Tambah Obat</a>
-                <a class="collapse-item <?php echo $this->uri->segment(2) == 'lihat_obat' ? 'active': '' ?>" href="<?= base_url('user/lihat_obat')?>">Lihat Obat</a>
-                <a class="collapse-item <?php echo $this->uri->segment(2) == 'tabel_kedaluwarsa' ? 'active': '' ?>" href="<?= base_url('user/tabel_kedaluwarsa')?>">Obat Kedaluwarsa</a>
-                <a class="collapse-item <?php echo $this->uri->segment(2) == 'tabel_stok' ? 'active': '' ?>" href="<?= base_url('user/tabel_stok')?>">Obat Akan Habis</a>
-            </div>
-        </div>
-    </li>
-
-    <!-- Menu Kategori -->
+    <!-- Nav Item - Pembelian -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseKategori"
-            aria-expanded="true" aria-controls="collapseKategori">
-            <i class="fa fa-fw fa-plus-square"></i>
-            <span>Kategori</span>
-        </a>
-        <div id="collapseKategori" class="collapse" aria-labelledby="headingKategori" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('user/form_kategori')?>">Tambah Kategori</a>
-                <a class="collapse-item" href="<?= base_url('user/lihat_kategori')?>">Lihat Kategori</a>
-            </div>
-        </div>
+        <a class="nav-link" href="<?= base_url('user/lihat_pembelian')?>">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Pembelian</span></a>
     </li>
 
-    <!-- Menu Pemasok -->
+    <!-- Nav Item - Penjualan -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePemasok"
-            aria-expanded="true" aria-controls="collapsePemasok">
-            <i class="fa fa-fw fa-users"></i>
-            <span>Pemasok</span>
-        </a>
-        <div id="collapsePemasok" class="collapse" aria-labelledby="headingPemasok" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('user/form_pemasok')?>">Tambah Pemasok</a>
-                <a class="collapse-item" href="<?= base_url('user/lihat_pemasok')?>">Lihat Pemasok</a>
-            </div>
-        </div>
+        <a class="nav-link" href="<?= base_url('user/lihat_penjualan')?>">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Penjualan</span></a>
     </li>
 
-    <!-- Menu Transaksi -->
+    <!-- Nav Item - Laporan -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTransaksi"
-            aria-expanded="true" aria-controls="collapseTransaksi">
-            <i class="fa fa-fw fa-shopping-cart"></i>
-            <span>Transaksi</span>
-        </a>
-        <div id="collapseTransaksi" class="collapse" aria-labelledby="headingTransaksi" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('user/lihat_penjualan')?>">Penjualan</a>
-                <a class="collapse-item" href="<?= base_url('user/lihat_pembelian')?>">Pembelian</a>
-            </div>
-        </div>
+        <a class="nav-link" href="<?= base_url('user/menulaporan')?>">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Laporan</span></a>
     </li>
 
-
-    <!-- Menu LAPORAN -->
+    <!-- Nav Item - Keluar -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLaporan"
-            aria-expanded="true" aria-controls="collapseLaporan">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Laporan</span>
+        <a class="nav-link" href="<?= base_url('auth/logout')?>" data-toggle="modal"
+            data-target="#logoutModal">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Keluar</span></a>
+            
         </a>
-        <div id="collapseLaporan" class="collapse" aria-labelledby="headingLaporan" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('laporan_controller/laporan_penjualan')?>">Laporan
-                    Penjualan</a>
-                <a class="collapse-item" href="<?= base_url('laporan_controller/laporan_pembelian')?>"> Laporan
-                    Pembelian</a>
-            </div>
-        </div>
     </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
 
 </ul>
 <!-- End of Sidebar -->

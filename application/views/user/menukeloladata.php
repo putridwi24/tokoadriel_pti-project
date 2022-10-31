@@ -3,9 +3,9 @@
 <div class="container-fluid">
 
     <!-- Header Keterangan -->
-    <div class="row tile_count justify-content-center" style="text-align:center">
+    <div class="row tile_count justify-content-center" style="justify-content:center">
         
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
+        <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
             <span class="count_top"><i class="fa fa-users"></i> Supplier </span>
             <div class="count" style="text-align: ;"><?php echo $sumPemasok ?></div>
         </div>
@@ -15,16 +15,16 @@
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
             <span class="count_top"><i class="fa fa-edit"></i> Total Kategori </span>
-            <div class="count" style="text-align: ;"><?php echo number_format($sumJual) ?></div>
+            <div class="count" style="text-align: ;"><?php echo number_format($sumJual) ?></div> -->
         </div>
     </div>
     <!-- /Header Keterangan -->
 
     <!-- Body -->
     
-    <div class="row pt-5" style="text-align:center">
+    <div class="row pt-5" style="justify-content:center">
         <div class="col-xl-3 col-md-6 mb-4" >
-            <a href="<?= base_url('user/form_obat')?>" class="text-decoration-none">
+            <a href="<?= base_url('user/lihat_supplier')?>" class="text-decoration-none">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -44,7 +44,7 @@
         </div>
 
         <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('user/form_kategori')?>" class="text-decoration-none">
+            <a href="<?= base_url('user/lihat_produk')?>" class="text-decoration-none">
                 <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="col-xl-3 col-md-6 mb-4">
-            <a href="<?= base_url('user/form_pemasok')?>" class="text-decoration-none">
+            <a href="<?= base_url('user/lihat_kategori')?>" class="text-decoration-none">
                 <div class="card border-left-info shadow h-s100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">

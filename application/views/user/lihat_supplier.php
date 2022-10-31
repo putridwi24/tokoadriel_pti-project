@@ -5,62 +5,80 @@
             <h6 class="m-0 font-weight-bold text-dark"><?= $title; ?></h6>
         </div>
         <div class="card-body">
+
+            <!-- notifikasi data berhasil ditambahkan -->
+            <?php if ($this->session->flashdata('flash') ) : ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Data Pemasok <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <?php endif; ?>
+
+            <a href="<?php echo base_url('user/form_tambahsupplier'); ?>"><button class="btn btn-success mb-3">
+                    <i class="fas fa-plus"> Tambah Supplier</i></button></a>
+
+
             <div class="table-responsive">
-
-
-                <!-- notifikasi data berhasil ditambahkan -->
-                <?php if ($this->session->flashdata('flash') ) : ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    Data Kategori <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <?php endif; ?>
-
-                <!-- button tambah kategori -->
-                <a href="<?php echo base_url('user/form_kategori'); ?>"><button class="btn btn-success mb-3">
-                        <i class="fas fa-plus"> Tambah Ketegori</i></button></a>
-
-                <!-- tabel kategori -->
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama </th>
+                            <th>Nama Supplier</th>
                             <th>Alamat</th>
-                            <th>Telepon</th>
+                            <th>No Telepon</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $i = 1; 
-                        foreach ($kategori as $data) : 
+                        foreach ($supplier as $data) : 
                     ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            
+                            <td><?= $data->nama_supplier; ?></td>
+                            <td><?= $data->alamat_supplier; ?></td>
+                            <td><?= $data->telepon_supplier; ?></td>
                             <td>
-                                <a href="<?= base_url('user/edit_kategori/'). $data->id_kat?>"><button type="edit"
+                                <a href="<?= base_url('user/edit_supplier/'). $data->id_supplier?>"><button type="edit"
                                         class="sbtn btn-success"><i class="fas fa-edit"></i></button></a>
 
-                                <a href="<?= base_url('user/hapus_kategori/'). $data->id_kat?>"><button type="delete"
+                                <a href="<?= base_url('user/hapus_pemasok/'). $data->id_supplier?>"><button type="delete"
                                         class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i
                                             class="fas fa-trash"></i></button></a>
-                            </td>
-                        </tr>
-
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
             </div>
+            </td>
+            </tr>
+
+            <?php endforeach; ?>
+            </tbody>
+            </table>
         </div>
     </div>
 </div>
+</div>
+
 
 <script src="<?= base_url('assets/');?>vendor/moment/min/moment.min.js">
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#dataTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'excel', 'pdf',
+        ]
+    });
+});
 </script>

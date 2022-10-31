@@ -14,7 +14,7 @@
 
                         <div class="row justify-content-center pt-2">
                             <div class="col-2">
-                                <label for="nama_pemasok" class="col-form-label">Nama Pemasok</label>
+                                <label for="nama_pemasok" class="col-form-label">Nama Supplier</label>
                             </div>
                             <div class="col-3">
                                 <select name="nama_pemasok" id="nama_pemasok"
@@ -47,7 +47,7 @@
                         <table id="pembelian" class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th style="text-align: center">Obat yang dibeli</th>
+                                    <th style="text-align: center">Barang yang dibeli</th>
                                     <th style="text-align: center">Sisa Stok</th>
                                     <th style="text-align: center">Kategori</th>
                                     <th style="text-align: center">Harga</th>
@@ -121,7 +121,7 @@ $(document).on('change', '.nama_pemasok', function() {
         success: function(data) {
             var html = '';
             var i;
-            html += '<option selected="true" value="" disabled >Pilih obat</option>';
+            html += '<option selected="true" value="" disabled >Pilih barang</option>';
             for (i = 0; i < data.length; i++) {
                 html += '<option>' + data[i].nama_obat + '</option>';
             }

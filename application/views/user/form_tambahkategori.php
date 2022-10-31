@@ -8,7 +8,7 @@
 
                 <div class="row justify-content-center pt-4" post>
                     <div class="col-2">
-                        <label for="nama_kategori" class="col-form-label">Nama Barang</label>
+                        <label for="nama_kategori" class="col-form-label">Nama Kategori</label>
                     </div>
                     <div class="col-3">
                         <input type="text" id="nama_kategori" name="nama_kategori" class="form-control"

@@ -19,7 +19,7 @@
                 <?php endif; ?>
 
                 <!-- button tambah kategori -->
-                <a href="<?php echo base_url('user/form_kategori'); ?>"><button class="btn btn-success mb-3">
+                <a href="<?php echo base_url('user/form_tambahkategori'); ?>"><button class="btn btn-success mb-3">
                         <i class="fas fa-plus"> Tambah Ketegori</i></button></a>
 
                 <!-- tabel kategori -->
@@ -39,8 +39,8 @@
                     ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td></td>
-                            <td></td>
+                            <td><?= $data->nama_kat; ?></td>
+                            <td><?= $data->desk_kat; ?></td>
                             <td>
                                 <a href="<?= base_url('user/edit_kategori/'). $data->id_kat?>"><button type="edit"
                                         class="sbtn btn-success"><i class="fas fa-edit"></i></button></a>
