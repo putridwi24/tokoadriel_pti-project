@@ -13,10 +13,9 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Tanggal Penjualan</th>
-                            <th>Penjualan</th>
-                            <th>Laba</th>
+                            <th>Nama Barang</th>
+                            <th>Kategori</th>
+                            <th>Stok</th>
                         </tr>
                     </thead>
                     <tbody>
