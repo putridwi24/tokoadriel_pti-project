@@ -123,7 +123,6 @@ class Auth extends CI_Controller {
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
-        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda Telah Keluar Akun!</div>');
         redirect('auth');
     }
 
