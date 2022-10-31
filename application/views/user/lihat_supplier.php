@@ -27,8 +27,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori</th>
-                            <th>Deskripsi</th>
+                            <th>Nama </th>
+                            <th>Alamat</th>
+                            <th>Telepon</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -41,6 +42,8 @@
                             <td><?= $i++; ?></td>
                             <td></td>
                             <td></td>
+                            <td></td>
+                            
                             <td>
                                 <a href="<?= base_url('user/edit_kategori/'). $data->id_kat?>"><button type="edit"
                                         class="sbtn btn-success"><i class="fas fa-edit"></i></button></a>

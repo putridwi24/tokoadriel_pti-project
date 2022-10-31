@@ -8,24 +8,35 @@
 
                 <div class="row justify-content-center pt-4" post>
                     <div class="col-2">
-                        <label for="nama_kategori" class="col-form-label">Nama Kategori</label>
+                        <label for="nama_supplier" class="col-form-label">Nama Supplier</label>
                     </div>
                     <div class="col-3">
-                        <input type="text" id="nama_kategori" name="nama_kategori" class="form-control"
+                        <input type="text" id="nama_supplier" name="nama_supplier" class="form-control"
                             value="<?= set_value('nama_kategori')?>">
-                        <?= form_error('nama_kategori', '<small class="text-danger pl-3">' ,'</small>'); ?>
+                        <?= form_error('nama_supplier', '<small class="text-danger pl-3">' ,'</small>'); ?>
                     </div>
 
                 </div>
 
-                <div class="row justify-content-center pt-2">
+                <div class="row justify-cZontent-center pt-2">
                     <div class="col-2">
-                        <label for="deskripsi" class="col-form-label">Deskripsi</label>
+                        <label for="alamat" class="col-form-label">Alamat</label>
                     </div>
                     <div class="col-3">
-                        <input id="deskripsi" name="deskripsi" class="form-control"
-                            value="<?= set_value('deskripsi')?>">
-                        <?= form_error('deskripsi', '<small class="text-danger pl-3">','</small>'); ?>
+                        <input id="alamat" name="alamat" class="form-control"
+                            value="<?= set_value('alamat')?>">
+                        <?= form_error('alamat', '<small class="text-danger pl-3">','</small>'); ?>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center pt-2">
+                    <div class="col-2">
+                        <label for="telepon" class="col-form-label">No Telepon</label>
+                    </div>
+                    <div class="col-3">
+                        <input id="telepon" name="telepon" class="form-control"
+                            value="<?= set_value('telepon')?>">
+                        <?= form_error('telepon', '<small class="text-danger pl-3">','</small>'); ?>
                     </div>
                 </div>
 
