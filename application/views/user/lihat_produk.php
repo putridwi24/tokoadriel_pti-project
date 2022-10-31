@@ -39,8 +39,8 @@
                     ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td></td>
-                            <td></td>
+                            <td><?= $data->nama_kat; ?></td>
+                            <td><?= $data->desk_kat; ?></td>
                             <td>
                                 <a href="<?= base_url('user/edit_kategori/'). $data->id_kat?>"><button type="edit"
                                         class="sbtn btn-success"><i class="fas fa-edit"></i></button></a>

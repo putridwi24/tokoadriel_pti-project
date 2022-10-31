@@ -6,8 +6,6 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-
-
                 <!-- notifikasi data berhasil ditambahkan -->
                 <?php if ($this->session->flashdata('flash') ) : ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -20,39 +18,22 @@
 
                 <!-- button tambah kategori -->
                 <a href="<?php echo base_url('user/form_kategori'); ?>"><button class="btn btn-success mb-3">
-                        <i class="fas fa-plus"> Tambah Ketegori</i></button></a>
+                        <i class="fas fa-plus"> Unduh Laporan</i></button></a>
 
                 <!-- tabel kategori -->
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Kategori</th>
-                            <th>Deskripsi</th>
+                            <th>Bulan</th>
+                            <th>Pembelian</th>
+                            <th>Penjualan</th>
+                            <th>Laba</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
-                        $i = 1; 
-                        foreach ($kategori as $data) : 
-                    ?>
-                        <tr>
-                            <td><?= $i++; ?></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="<?= base_url('user/edit_kategori/'). $data->id_kat?>"><button type="edit"
-                                        class="sbtn btn-success"><i class="fas fa-edit"></i></button></a>
-
-                                <a href="<?= base_url('user/hapus_kategori/'). $data->id_kat?>"><button type="delete"
-                                        class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i
-                                            class="fas fa-trash"></i></button></a>
-                            </td>
-                        </tr>
-
-                        <?php endforeach; ?>
-                    </tbody>
+                   
+                  
                 </table>
             </div>
         </div>
