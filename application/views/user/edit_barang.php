@@ -9,32 +9,12 @@
                 <input type="hidden" name="id" id="id" value="<?= $barang['id']; ?>">
                 <div class="row justify-content-center pt-4" post>
                     <div class="col-2">
-<<<<<<< HEAD:application/views/user/edit_barang.php
                         <label for="nama_barang" class="col-form-label">Nama Barang</label>
                     </div>
                     <div class="col-3">
                         <input type="text" id="nama_barang" name="nama_barang" class="form-control"
                             value="<?= $barang['nama_barang']; ?>">
                         <?= form_error('nama_barang', '<small class="text-danger pl-3">' ,'</small>'); ?>
-=======
-                        <label for="nama_barang" class="col-form-label">Nama Obat</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="nama_barang" name="nama_barang" class="form-control"
-                            value="<?= $barangt['nama_barang']; ?>">
-                        <?= form_error('nama_barang', '<small class="text-danger pl-3">' ,'</small>'); ?>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center pt-2">
-                    <div class="col-2">
-                        <label for="penyimpanan" class="col-form-label">Penyimpanan</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="penyimpanan" name="penyimpanan" class="form-control"
-                            value="<?= $obat['penyimpanan']; ?>">
-                        <?= form_error('penyimpanan', '<small class="text-danger pl-3">' ,'</small>'); ?>
->>>>>>> 526929c0d7cc9a326262bda8839b31c2f6a8917d:application/views/user/edit_obat.php
                     </div>
                 </div>
 
@@ -101,19 +81,19 @@
 
                 <div class="row justify-content-center pt-2">
                     <div class="col-2">
-                        <label for="nama_pemasok" class="col-form-label">Nama Pemasok</label>
+                        <label for="nama_supplier" class="col-form-label">Nama Supplier</label>
                     </div>
                     <div class="col-3">
-                        <select type="text" name="nama_pemasok" id="nama_pemasok" class="form-control">
-                            <?php foreach($get_pemasok as $gp) :?>
-                            <?php if ( $gp == $barang['nama_pemasok']) :?>
+                        <select type="text" name="nama_supplier" id="nama_supplier" class="form-control">
+                            <?php foreach($get_supplier as $gp) :?>
+                            <?php if ( $gp == $barang['nama_supplier']) :?>
                             <option value="<?php echo $gp; ?>" selected><?php echo $gp; ?></option>
                             <?php else :  ?>
                             <option value="<?php echo $gp; ?>"><?php echo $gp; ?></option>
                             <?php endif; ?>
                             <?php  endforeach;?>
                         </select>
-                        <?= form_error('nama_pemasok', '<small class="text-danger pl-3">' ,'</small>'); ?>
+                        <?= form_error('nama_supplier', '<small class="text-danger pl-3">' ,'</small>'); ?>
                     </div>
                 </div>
 

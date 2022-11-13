@@ -32,9 +32,9 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['sumObat'] = $this->Data_adriel->total_obat();
+        $data['sumBarang'] = $this->Data_adriel->total_barang();
         $data['sumKat'] = $this->Data_adriel->total_kategori();
-        $data['sumPemasok'] = $this->Data_adriel->total_pemasok();
+        $data['sumSupplier'] = $this->Data_adriel->total_supplier();
         $data['sumJual'] = $this->Data_adriel->count_totaljual();
         $data['sumBeli'] = $this->Data_adriel->count_totalbeli();
 
@@ -52,11 +52,11 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['sumObat'] = $this->Data_adriel->total_obat();
-        $data['sumKat'] = $this->Data_adriel->total_kategori();
-        $data['sumPemasok'] = $this->Data_adriel->total_pemasok();
-        $data['sumJual'] = $this->Data_adriel->count_totaljual();
-        $data['sumBeli'] = $this->Data_adriel->count_totalbeli();
+        // $data['sumBarang'] = $this->Data_adriel->total_barang();
+        // $data['sumKat'] = $this->Data_adriel->total_kategori();
+        // $data['sumPemasok'] = $this->Data_adriel->total_pemasok();
+        // $data['sumJual'] = $this->Data_adriel->count_totaljual();
+        // $data['sumBeli'] = $this->Data_adriel->count_totalbeli();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -111,8 +111,8 @@ class User extends CI_Controller
     public function tabel_kedaluwarsa()
     {
         $data['title'] = 'Tabel Kedaluwarsa';
-        $data['title1'] = 'Tabel Obat Akan Kedaluwarsa';
-        $data['title2'] = 'Tabel Obat Sudah Kedaluwarsa';
+        $data['title1'] = 'Tabel Barang Akan Kedaluwarsa';
+        $data['title2'] = 'Tabel Barang Sudah Kedaluwarsa';
 
         $data['table_almostexp'] = $this->Data_adriel->almostexp()->result();
         $data['table_exp'] = $this->Data_adriel->expired()->result();
@@ -121,7 +121,7 @@ class User extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         // queri pemanggilan tabel di DB
-        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_obat');
+        $data['barang'] = $this->Data_adriel->getDataAdriel('tb_barang');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -133,9 +133,9 @@ class User extends CI_Controller
         // Tabel stok
     public function tabel_stok()
     {
-        $data['title'] = 'Tabel Stok Obat';
-        $data['title1'] = 'Tabel Stok Obat Akan Habis';
-        $data['title2'] = 'Tabel Stok Obat Sudah Habis';
+        $data['title'] = 'Tabel Stok Barang';
+        $data['title1'] = 'Tabel Stok Barang Akan Habis';
+        $data['title2'] = 'Tabel Stok Barang Sudah Habis';
 
 
         $data['habis_stok'] = $this->Data_adriel->habis_stok()->result();
@@ -242,7 +242,7 @@ class User extends CI_Controller
         // method lihat pemasok
     public function lihat_pemasok()
     {
-        $data['title'] = 'Lihat Pemasok';
+        $data['title'] = 'Lihat Supplier';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -276,7 +276,7 @@ class User extends CI_Controller
          // method lihat penjualan
     public function lihat_penjualan()
     {
-        $data['title'] = 'Tabel Penjualan Obat';
+        $data['title'] = 'Tabel Penjualan Barang';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         // queri pemanggilan tabel di DB
@@ -294,12 +294,12 @@ class User extends CI_Controller
          // method lihat pembelian
     public function lihat_pembelian()
     {
-        $data['title'] = 'Tabel Pembelian Obat';
+        $data['title'] = 'Tabel Pembelian Barang';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         // queri pemanggilan tabel di DB
         $data['pembelian'] = $this->Data_adriel->getDataAdriel('tb_pembelian');
-        $data['tb_beli'] = $this->Data_adriel->pembelian()->result();
+        $data['tb_pembelian'] = $this->Data_adriel->pembelian()->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -346,19 +346,14 @@ class User extends CI_Controller
 
     public function form_tambahbarang()
     {
-        $data['title'] = 'Tambah Produk';
+        $data['title'] = 'Tambah Barang';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $data['get_kat'] = $this->Data_adriel->get_kategori();
-        $data['get_supplier'] = $this->Data_adriel->get_supplier();
+        // $data['get_supplier'] = $this->Data_adriel->get_supplier();
 
-        $this->form_validation->set_rules('nama_barang', 'Nama Produk', 'required');
-        $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
         $this->form_validation->set_rules('nama_kat', 'Kategori', 'required');
-        $this->form_validation->set_rules('kedaluwarsa', 'Kedaluwarsa', 'required');
-        $this->form_validation->set_rules('harga_jual', 'Harga Jual', 'required|numeric');
-        $this->form_validation->set_rules('harga_beli', 'Harga Beli', 'required|numeric');
-        $this->form_validation->set_rules('nama_supplier', 'Nama Supplier', 'required');
  
         if($this->form_validation->run() == FALSE)
         {
@@ -369,9 +364,9 @@ class User extends CI_Controller
             $this->load->view('templates/footer');
         }
         else {
-            $this->Data_adriel->tambah_obat();
+            $this->Data_adriel->tambah_barang();
             $this->session->set_flashdata('flash','ditambahkan');
-            redirect('user/lihat_obat');
+            redirect('user/lihat_produk');
         }
     }
 
@@ -402,7 +397,7 @@ class User extends CI_Controller
             // method form pemasok
     public function form_tambahsupplier()
     {
-        $data['title'] = 'Tambah Pemasok';
+        $data['title'] = 'Tambah Supplier';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->form_validation->set_rules('nama_supplier', 'Nama Supplier', 'required');
@@ -428,13 +423,13 @@ class User extends CI_Controller
     // form pembelian
         public function form_pembelian()
     {
-        $data['title'] = 'Tambah Pembelian dari Pemasok';
+        $data['title'] = 'Tambah Pembelian dari Supplier';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['get_pemasok'] = $this->Data_adriel->get_pemasok();
-        $data['get_med'] = $this->Data_adriel->get_medicine();
+        $data['get_supplier'] = $this->Data_adriel->get_supplier();
+        $data['get_brg'] = $this->Data_adriel->get_brg();
 
-        $this->form_validation->set_rules('nama_pemasok', 'Nama Pemasok', 'required');
+        $this->form_validation->set_rules('nama_supplier', 'Nama Supplier', 'required');
         $this->form_validation->set_rules('tgl_beli', 'Tanggal Beli', 'required');
 
         if($this->form_validation->run() == FALSE)
@@ -458,9 +453,9 @@ class User extends CI_Controller
         $data['title'] = 'Tambah Penjualan';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['get_med'] = $this->Data_adriel->get_medicine();
-        $data['get_pemasok'] = $this->Data_adriel->get_pemasok();
+        $data['get_brg'] = $this->Data_adriel->get_brg();
         $data['get_kat'] = $this->Data_adriel->get_kategori();
+        $data['get_id'] = $this->Data_adriel->get_id();
 
         $this->form_validation->set_rules('nama_pembeli', 'Nama Pembeli', 'required');
         $this->form_validation->set_rules('tgl_beli', 'Tanggal Beli', 'required');
@@ -492,17 +487,16 @@ class User extends CI_Controller
         $data['barang'] = $this->Data_adriel->getBarang($id);
 
         $data['get_kat'] = $this->Data_adriel->get_kategori();
-        $data['get_pemasok'] = $this->Data_adriel->get_pemasok();
-        // $data['obat_edit'] = $this->Data_adriel->edit_data_obat('tb_obat');
+        $data['get_supplier'] = $this->Data_adriel->get_supplier();
+        // $data['barang_edit'] = $this->Data_adriel->edit_data_obat('tb_barang');
 
-        $this->form_validation->set_rules('nama_barang', 'Nama Pemasok', 'required');
-        $this->form_validation->set_rules('penyimpanan', 'Penyimpanan', 'required');
+        $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
         $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
         $this->form_validation->set_rules('nama_kat', 'Kategori', 'required');
         $this->form_validation->set_rules('kedaluwarsa', 'Kedaluwarsa', 'required');
         $this->form_validation->set_rules('h_jual', 'Harga Jual', 'required|numeric');
         $this->form_validation->set_rules('h_beli', 'Harga Beli', 'required|numeric');
-        $this->form_validation->set_rules('nama_pemasok', 'Nama Pemasok', 'required');
+        $this->form_validation->set_rules('nama_supplier', 'Nama Supplier', 'required');
  
 
         if($this->form_validation->run() == FALSE)
@@ -515,7 +509,7 @@ class User extends CI_Controller
         }
         else {
             // var_dump($this->input->post("h_jual"));die;
-            $this->Data_adriel->edit_obatan();
+            $this->Data_adriel->edit_barang();
             $this->session->set_flashdata('flash','diubah');
             redirect('user/lihat_produk');
         }
@@ -612,15 +606,22 @@ class User extends CI_Controller
 
     // TRANSAKSI
     function getmedbysupplier(){
-        $nama_pemasok=$this->input->post('nama_pemasok');
-        $data=$this->Data_adriel->getmedbysupplier($nama_pemasok);
+        $nama_supplier=$this->input->post('nama_supplier');
+        $data=$this->Data_adriel->getmedbysupplier($nama_supplier);
         echo json_encode($data);
     }
 
     function product()
 	{
-	    $nama_obat=$this->input->post('nama_obat');
-        $data=$this->Data_adriel->get_product($nama_obat);
+	    $nama_barang=$this->input->post('nama_barang');
+        $data=$this->Data_adriel->get_product($nama_barang);
+        echo json_encode($data);
+	}
+
+    function productid()
+	{
+	    $id=$this->input->post('id');
+        $data=$this->Data_adriel->get_productid($id);
         echo json_encode($data);
 	}
 

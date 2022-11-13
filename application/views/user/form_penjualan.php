@@ -39,6 +39,7 @@
                         <table id="penjualan" class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th style="text-align: center">Id Barang</th>
                                     <th style="text-align: center">Barang yang dijual</th>
                                     <th style="text-align: center">Sisa Stok</th>
                                     <th style="text-align: center">Kategori</th>
@@ -53,7 +54,7 @@
 
                             <tfoot>
                                 <tr>
-                                    <td style="text-align:right; vertical-align: middle" colspan="5">
+                                    <td style="text-align:right; vertical-align: midle" colspan="5">
                                         <b>Grandtotal</b>
                                     </td>
                                     <td>
@@ -72,7 +73,7 @@
                                         class="btn btn-danger">Batal</button></a>
                                 <button id='addpenjualan' class="btn btn-info" type="button"><span
                                         class="fa fa-plus"></span>
-                                    Tambah Produk</button>
+                                    Tambah Barang</button>
                                 <button id="send" type="submit" class="btn btn-success">Simpan</button>
 
                             </div>
@@ -103,10 +104,11 @@ var counter = 1;
 
 addpenjualan.onclick = function(event) {
     penjualan.row.add([
-        '<select required="required" style="width:100%" class="form-control nama_obat" id="nama_obat' +
-        counter + '" name="nama_obat[]" data-stok="#stok' + counter + '" data-nama_kat="#nama_kat' +
-        counter + '" data-h_beli="#h_beli' + counter +
-        '"><option selected="true" value="" disabled ></option><?php foreach ($get_med as $gm) { ?><option value="<?php echo $gm; ?>"><?php echo $gm; ?></option><?php  } ?></select>',
+        '<select required="required" style="width:100%" class="form-control id" id="id' +
+        counter + '" name="id[]" data-stok="#stok' + counter + '" data-nama_kat="#nama_kat' +
+        counter + '" data-h_beli="#h_beli' + counter + '" data-nama_barang="#nama_barang' + counter +
+        '"><option selected="true" value="" disabled ></option><?php foreach ($get_id as $id) { ?><option value="<?php echo $id; ?>"><?php echo $id; ?></option><?php  } ?></select>',
+        '<input id="nama_barang' + counter + '" name="nama_barang[]" class="form-control nama_barang" readonly >',
         '<input id="stok' + counter + '" name="stok[]" class="form-control stok" readonly >',
         '<input id="nama_kat' + counter + '" name="nama_kat[]" class="form-control" readonly>',
         '<input id="h_beli' + counter +
@@ -123,11 +125,11 @@ addpenjualan.onclick = function(event) {
         myOpt.push($(this).val());
     });
     $("select").each(function() {
-        $(this).find("option").prop('hidden', false);
+        $(this).find("option").prop('hiden', false);
         var sel = $(this);
         $.each(myOpt, function(key, value) {
             if ((value != "") && (value != sel.val())) {
-                sel.find("option").filter('[value="' + value + '"]').prop('hidden', true);
+                sel.find("option").filter('[value="' + value + '"]').prop('hiden', true);
             }
         });
     });
@@ -142,20 +144,21 @@ $('#penjualan').on("click", "#removeproduk", function() {
 });
 
 
-$('#penjualan').on('change', '.nama_obat', function() {
+$('#penjualan').on('change', '.id', function() {
     var $select = $(this);
-    var nama_obat = $select.val();
+    var id = $select.val();
 
     $.ajax({
         type: "POST",
-        url: "<?php echo base_url('user/product') ?>",
+        url: "<?php echo base_url('user/productid') ?>",
         dataType: "JSON",
         data: {
-            nama_obat: nama_obat
+            id: id
         },
         cache: false,
         success: function(data) {
-            $.each(data, function(nama_obat, stok, nama_kat, h_beli) {
+            $.each(data, function(nama_barang, id, stok, nama_kat, h_beli) {
+                $($select.data('nama_barang')).val(data.nama_barang);
                 $($select.data('stok')).val(data.stok);
                 $($select.data('nama_kat')).val(data.nama_kat);
                 $($select.data('h_beli')).val(data.h_beli);

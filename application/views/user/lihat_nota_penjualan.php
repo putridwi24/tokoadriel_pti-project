@@ -60,7 +60,7 @@
                             <?php foreach($show_invoice as $si){ ?>
                             <tr>
                                 <td><?php echo $si->banyak ?></td>
-                                <td><?php echo $si->nama_obat ?></td>
+                                <td><?php echo $si->nama_barang ?></td>
                                 <td>Rp <?php echo number_format($si->h_beli) ?></td>
                                 <td>Rp <?php echo number_format($si->subtotal) ?></td>
                             </tr>
@@ -104,6 +104,7 @@
             <!-- this row will not appear when printing -->
             <div class="row m-3">
                 <div class="col-xs-12">
+                <a href="<?php echo base_url('user/lihat_penjualan') ?>">
                 <button id="send" type="submit" class="btn btn-success">Selesai</button>
 
                 </div>

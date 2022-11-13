@@ -7,17 +7,16 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div class="alert alert-danger" role="alert">
-                    List Obat dengan tanggal Kedaluwarsa <strong>Kurang dari 15 Hari</strong>!
+                    List Barang dengan tanggal Kedaluwarsa <strong>Kurang dari 15 Hari</strong>!
                 </div>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Obat</th>
-                            <th>Penyimpanan</th>
+                            <th>Nama Barang</th>
                             <th>Kategori</th>
                             <th>Stok</th>
-                            <th>Pemasok</th>
+                            <th>Supplier</th>
                             <th>Kedaluwarsa</th>
                             <th>Harga Jual</th>
                         </tr>
@@ -29,11 +28,10 @@
                     ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $data->nama_obat; ?></td>
-                            <td><?= $data->penyimpanan; ?></td>
+                            <td><?= $data->nama_barang; ?></td>
                             <td><?= $data->nama_kat; ?></td>
                             <td><?= $data->stok; ?></td>
-                            <td><?= $data->nama_pemasok; ?></td>
+                            <td><?= $data->nama_supplier; ?></td>
                             <td><?= date('j F Y',strtotime($data->kedaluwarsa)); ?></td>
                             <td>Rp<?= number_format($data->h_jual); ?></td>
                         </tr>
@@ -57,11 +55,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Obat</th>
-                            <th>Penyimpanan</th>
+                            <th>Nama Barang</th>
                             <th>Kategori</th>
                             <th>Stok</th>
-                            <th>Pemasok</th>
+                            <th>Supplier</th>
                             <th>Kedaluwarsa</th>
                             <th>Harga Jual</th>
                         </tr>
@@ -73,11 +70,10 @@
                     ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $data->nama_obat; ?></td>
-                            <td><?= $data->penyimpanan; ?></td>
+                            <td><?= $data->nama_barang; ?></td>
                             <td><?= $data->nama_kat; ?></td>
                             <td><?= $data->stok; ?></td>
-                            <td><?= $data->nama_pemasok; ?></td>
+                            <td><?= $data->nama_supplier; ?></td>
                             <td><?= date('j F Y',strtotime($data->kedaluwarsa)); ?></td>
                             <td>Rp<?= number_format($data->h_jual); ?></td>
                         </tr>

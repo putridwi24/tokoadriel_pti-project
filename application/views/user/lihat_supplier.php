@@ -9,7 +9,7 @@
             <!-- notifikasi data berhasil ditambahkan -->
             <?php if ($this->session->flashdata('flash') ) : ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Data Pemasok <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>!
+                Data Supplier <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>!
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

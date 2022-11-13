@@ -11,7 +11,7 @@
         <table class="table table-bordered table-striped">
             <tr>
                 <th>No Referensi</th>
-                <th>Nama Pemasok</th>
+                <th>Nama Supplier</th>
                 <th>Nama Obat</th>
                 <th>Tanggal Transaksi</th>
                 <th>Banyak</th>

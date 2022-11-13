@@ -6,7 +6,7 @@
         </div>
         
         <div class="card-body">
-            <a href="<?php echo base_url('user/form_penjualan'); ?>"><button class="btn btn-success mb-3">
+            <a href="<?php echo base_url('user/laporan_stok_barang'); ?>"><button class="btn btn-success mb-3">
                     <i class="fas fa-plus"> Unduh Laporan</i></button></a>
 
             <div class="table-responsive">

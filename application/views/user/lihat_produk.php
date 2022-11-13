@@ -43,7 +43,7 @@
                             <td><?= $data->nama_kat; ?></td>
                             <td><?= $data->stok; ?></td>
                             <td><?= $data->nama_supplier; ?></td>
-                            <td><?= date('j F Y',strtotime($data->kedaluwarsa)); ?></td>
+                            <td><?= $data->kedaluwarsa; ?></td>
                             <td>Rp<?= number_format($data->h_jual); ?></td>
                             <td>
                                 <a href="<?= base_url('user/edit_barang/'). $data->id?>"><button type="edit"

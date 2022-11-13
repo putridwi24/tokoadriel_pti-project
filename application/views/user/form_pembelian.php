@@ -14,13 +14,13 @@
 
                         <div class="row justify-content-center pt-2">
                             <div class="col-2">
-                                <label for="nama_pemasok" class="col-form-label">Nama Supplier</label>
+                                <label for="nama_supplier" class="col-form-label">Nama Supplier</label>
                             </div>
                             <div class="col-3">
-                                <select name="nama_pemasok" id="nama_pemasok"
+                                <select name="nama_supplier" id="nama_supplier"
                                     class="select2_single form-control nama_pemasok" tabindex="-1" required="required">
                                     <option selected="true" value="" disabled></option>
-                                    <?php foreach($get_pemasok as $gs){ ?>
+                                    <?php foreach($get_supplier as $gs){ ?>
                                     <option value="<?php echo $gs; ?>"><?php echo $gs; ?></option>
                                     <?php  }?>
                                 </select>
@@ -50,7 +50,9 @@
                                     <th style="text-align: center">Barang yang dibeli</th>
                                     <th style="text-align: center">Sisa Stok</th>
                                     <th style="text-align: center">Kategori</th>
-                                    <th style="text-align: center">Harga</th>
+                                    <th style="text-align: center">Harga Beli</th>
+                                    <th style="text-align: center">Harga Jual</th>
+                                    <th style="text-align: center">Kedaluwarsa</th>
                                     <th style="text-align: center">Banyak</th>
 
                                     <th style="text-align: center">Subtotal</th>
@@ -80,7 +82,7 @@
                                         class="btn btn-danger">Batal</button></a>
                                 <button id='addpembelian' class="btn btn-info" type="button"><span
                                         class="fa fa-plus"></span>
-                                    Tambah Produk</button>
+                                    Tambah Barang</button>
                                 <button id="send" type="submit" class="btn btn-success">Simpan</button>
 
                             </div>
@@ -106,15 +108,15 @@ var pembelian = $('#pembelian').DataTable({
     "searching": false,
 });
 
-$(document).on('change', '.nama_pemasok', function() {
+$(document).on('change', '.nama_supplier', function() {
 
-    var nama_pemasok = $('.nama_pemasok').val();
+    var nama_supplier = $('.nama_supplier').val();
 
     $.ajax({
         url: "<?php echo base_url('user/getmedbysupplier') ?>",
         method: "POST",
         data: {
-            nama_pemasok: nama_pemasok
+            nama_supplier: nama_supplier
         },
         async: false,
         dataType: 'json',
@@ -123,9 +125,9 @@ $(document).on('change', '.nama_pemasok', function() {
             var i;
             html += '<option selected="true" value="" disabled >Pilih barang</option>';
             for (i = 0; i < data.length; i++) {
-                html += '<option>' + data[i].nama_obat + '</option>';
+                html += '<option>' + data[i].nama_supplier + '</option>';
             }
-            $('.nama_obat').html(html);
+            $('.nama_supplier').html(html);
 
         }
     });
@@ -135,14 +137,18 @@ var count = 1;
 
 addpembelian.onclick = function(event) {
     pembelian.row.add([
-        '<select required="required" style="width:100%;" class="form-control nama_obat" id="nama_obat' +
-        count + '" name="nama_obat[]" data-stok="#stok' + count + '" data-nama_kat="#nama_kat' + count +
+        '<select required="required" style="width:100%;" class="form-control nama_barang" id="nama_barang' +
+        count + '" name="nama_barang[]" data-stok="#stok' + count + '" data-nama_kat="#nama_kat' + count +
         '" data-h_beli="#h_beli' + count +
-        '"><option selected="true" value="" disabled >Pilih obat</option></select>',
+        '"><option selected="true" value="" disabled ></option><?php foreach ($get_brg as $gm) { ?><option value="<?php echo $gm; ?>"><?php echo $gm; ?></option><?php  } ?></select>',
         '<input id="stok' + count + '" name="stok[]" class="form-control stok" readonly >',
         '<input id="nama_kat' + count + '" name="nama_kat[]" class="form-control nama_kat" readonly>',
         '<input id="h_beli' + count +
-        '" name="h_beli[]" class="form-control h_beli" readonly>',
+        '" name="h_beli[]" class="form-control h_beli" required="required">',
+        '<input id="h_jual' + count +
+        '" name="h_jual[]" class="form-control h_jual" required="required">',
+        '<input type="date" id="kedaluwarsa' + count +
+        '" name="kedaluwarsa[]" class="form-control kedaluwarsa" required="required">',
         '<input type="number" id="banyak' + count +
         '" name="banyak[]" class="form-control banyak" required="required">',
         '<input id="subtotal' + count +
@@ -174,20 +180,20 @@ $('#pembelian').on("click", "#removeproduk", function() {
 });
 
 
-$('#pembelian').on('change', '.nama_obat', function() {
+$('#pembelian').on('change', '.nama_barang', function() {
     var $select = $(this);
-    var nama_obat = $select.val();
+    var nama_barang = $select.val();
 
     $.ajax({
         type: "POST",
         url: "<?php echo base_url('user/product') ?>",
         dataType: "JSON",
         data: {
-            nama_obat: nama_obat
+            nama_barang: nama_barang
         },
         cache: false,
         success: function(data) {
-            $.each(data, function(nama_obat, stok, nama_kat, h_beli) {
+            $.each(data, function(nama_barang, stok, nama_kat, h_beli) {
                 $($select.data('stok')).val(data.stok);
                 $($select.data('nama_kat')).val(data.nama_kat);
                 $($select.data('h_beli')).val(data.h_beli);

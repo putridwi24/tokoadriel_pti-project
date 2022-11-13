@@ -27,12 +27,14 @@
                     <tbody>
                         <?php
                         $i = 1;
-                        foreach ($tb_beli as $data) : 
+                        foreach ($tb_pembelian as $data) : 
                     ?>
                         <tr>
+                            <td><?= $data->ref; ?></td>
+                            <td><?= $data->nama_barang; ?></td>
+                            <td><?= $data->nama_supplier; ?></td>
                             </td> <td><?= date('j F Y',strtotime($data->tgl_beli)); ?></td>
-                            <td><?= $i++; ?></td>
-                            <td><?= $data->nama_pemasok; ?></td>
+                            <td><?= $data->h_beli; ?></td>
                             <td><?= $data->banyak; ?></td>
                             <td>Rp <?php echo number_format($data->grandtotal) ?></td>
                             <td>
