@@ -13,7 +13,7 @@ class Auth extends CI_Controller {
     {
         // kunci akses auth ketika sdh login
         if ($this->session->userdata('email')){
-            redirect('user');
+            redirect('user/beranda');
         }
 
         // verifikasi login
@@ -53,7 +53,8 @@ class Auth extends CI_Controller {
                 if (password_verify($password, $user['password'])){
                     $data = [
                         'email' => $user['email'],
-                        'role_id' => $user['role_id']
+                        'password' => $user['password'],
+                        'status' => "login"
                     ];
                     $this->session->set_userdata($data);
                     redirect('user/beranda');
@@ -121,7 +122,8 @@ class Auth extends CI_Controller {
     public function logout()
     {
         $this->session->unset_userdata('email');
-        $this->session->unset_userdata('role_id');
+        $this->session->unset_userdata('password');
+        $this->session->unset_userdata('status');
 
         redirect('auth');
     }

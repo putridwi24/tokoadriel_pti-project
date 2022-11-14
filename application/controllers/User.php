@@ -11,10 +11,14 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if($this->session->userdata('status') != "login"){
+            redirect(base_url("auth"));
+        }
         $this->load->model('Data_adriel');
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->library('table');
+
 
         $data['habis'] = $this->Data_adriel->countstock();
         $data['expired'] = $this->Data_adriel->countexp();
