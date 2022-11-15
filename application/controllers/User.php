@@ -676,4 +676,22 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
     
+    public function cetak_nota_pembelian($ref)
+    {
+        $data['title'] = 'Tanda Bukti';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $where = array('ref' => $ref);
+        $data['table_invoice'] = $this->Data_adriel->show_data($where, 'tb_pembelian')->result();
+		$data['show_invoice'] = $this->Data_adriel->show_invoice($where, 'tb_pembelian')->result();
+
+        // queri pemanggilan tabel di DB
+        $data['penjualan'] = $this->Data_adriel->getDataAdriel('tb_penjualan');
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/cetak_nota_pembelian', $data);
+        $this->load->view('templates/footer');
+    }
+
 }

@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="row m-4">
                     <h1>
-                        <i class="fa fa-globe"></i> Nota Pembelian.
+                        <i class="fa fa-globe"></i> Nota Penjualan
                         <small class="pull-right"></small>
                     </h1>
                 </div>
@@ -22,28 +22,18 @@
                     Dari
                     <address>
                         <strong>Toko Adriel</strong>
-                        <br>Jl. Airan Raya No.77
+                        <br>Jl. Airan Raya Rt.08 Rw.07 Way 
                         <br>Bandar Lampung
-                        <br>Telp: 0858 4040 7715
+                        <br>Telp: 0888 1111 2222 3333
 
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4">
-                    Supplier
-                    <address>
-                        <strong><?php echo $i->nama_supplier ?></strong>
-
-                        <br>Bandar Lampung
-
-                    </address>
+                    
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4">
-                    <b>No Referensi : #<?php echo $i->ref ?></b>
-                    <br>
-                    <b>Total Pembelian : <?php echo $i->banyak ?></b>
-                    <br>
                     <b>Tanggal : <?php echo date('j F Y',strtotime($i->tgl_beli)) ?></b>
                     <br>
 
@@ -60,18 +50,18 @@
                         <thead>
                             <tr>
 
-                                <th>Nama Obat</th>
+                                <th>Qty</th>
+                                <th>Nama Barang</th>
                                 <th>Harga satuan</th>
-                                <th>Banyak</th>
                                 <th>Subtotal</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($show_invoice as $si){ ?>
                             <tr>
+                                <td><?php echo $si->banyak ?></td>
                                 <td><?php echo $si->nama_barang ?></td>
                                 <td>Rp <?php echo number_format($si->h_beli) ?></td>
-                                <td><?php echo $si->banyak ?></td>
                                 <td>Rp <?php echo number_format($si->subtotal) ?></td>
                             </tr>
 
@@ -80,8 +70,8 @@
                         <tfoot>
                             <?php foreach($table_invoice as $i){ ?>
                             <tr>
-                                <td style="text-align:center; vertical-align: middle" colspan="2"><b>Grand
-                                        Total</b></td>
+                                <td style="text-align:center; vertical-align: middle" colspan="2"><b>Total
+                                        Rp</b></td>
                                 <td><?php echo ($i->banyak) ?></td>
                                 <td>
                                     <b>Rp <?php echo number_format($i->grandtotal) ?></b>
@@ -114,8 +104,8 @@
             <!-- this row will not appear when printing -->
             <div class="row m-3">
                 <div class="col-xs-12">
-                <a href="<?= base_url('user/cetak_nota_pembelian/'). $i->ref?>">
-                <button id="send" type="submit" class="btn btn-success">Cetak</button>
+                <a href="<?php echo base_url('user/lihat_penjualan') ?>">
+                <button id="send" type="submit" class="btn btn-success">Selesai</button>
 
                 </div>
             </div>

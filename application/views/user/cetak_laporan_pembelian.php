@@ -1,6 +1,6 @@
 <div class="container">
     <div class="text-center">
-        <h1>APOTEK KIKI FARMA</h1>
+        <h1>TOKO ADRIEL</h1>
         <h3><?= $judul; ?></h3>
         <h6><?= $subjudul; ?></h6>
     </div>
