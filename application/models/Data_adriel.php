@@ -71,19 +71,25 @@ class Data_adriel extends CI_Model
         return $this->db->query('SELECT * FROM tb_barang WHERE kedaluwarsa BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 15 DAY)');
     }
 
-    // Stok obat hampir habis 
+    // Stok barang hampir habis 
     public function almoststok()
     {
          return $this->db->query('SELECT * FROM tb_barang WHERE stok BETWEEN 1 AND 9');
     }
 
-    // stok obat sudah habis 
+    // stok barang sudah habis 
     public function habis_stok()
     {
          return $this->db->query('SELECT * FROM tb_barang WHERE stok BETWEEN 0 AND 0');
     }
 
-    // hitung total obat
+    // Stok barang
+    public function stok()
+    {
+         return $this->db->query('SELECT * FROM tb_barang');
+    }
+
+    // hitung total barang
     public function total_barang(){       
         $to =  $this->db->query('SELECT *, SUM(tb_barang.stok) as sumBarang FROM tb_barang'); 
             if ($to->num_rows() > 0) {

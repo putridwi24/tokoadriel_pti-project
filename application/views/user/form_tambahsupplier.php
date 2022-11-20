@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-3">
                         <input type="text" id="nama_supplier" name="nama_supplier" class="form-control"
-                            value="<?= set_value('nama_kategori')?>">
+                            value="<?= set_value('nama_supplier')?>">
                         <?= form_error('nama_supplier', '<small class="text-danger pl-3">' ,'</small>'); ?>
                     </div>
 

@@ -10,10 +10,12 @@
     <div class="row table-responsive">
         <table class="table table-bordered table-striped" id="table">
             <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Penjualan</th>
-                <th>Laba</th>
+                <th>No Referensi</th>
+                <th>Nama Pembeli</th>
+                <th>Nama Obat</th>
+                <th>Tanggal Transaksi</th>
+                <th>Banyak</th>
+                <th>Grandtotal</th>
             </tr>
 
             <?php 
@@ -22,30 +24,37 @@
             <tr>
                 <td><?= $data->ref; ?></td>
                 <td><?= $data->nama_pembeli; ?></td>
-                <td><?= $data->nama_obat; ?></td>
+                <td><?= $data->nama_barang; ?></td>
                 <td><?= date('j F Y',strtotime($data->tgl_beli)); ?></td>
                 <td><?= $data->banyak; ?></td>
                 <td>Rp <?= number_format($data->subtotal); ?></td>
             </tr>
             <?php endforeach; ?>
 
-            <!-- <?php $subtotal += $data->subtotal;?>
             <tr>
-                <td style="text-align:left; vertical-align: middle" colspan="5"><b>
+                <td style="text-align:center; vertical-align: middle" colspan="5"><b>
                         Total</b></td>
                 <td id="val">
-                    <b>aaa</b>
+                Rp <?= number_format($subtotal += $data->subtotal);?>
                 </td>
-            </tr> -->
+            </tr> 
         </table>
     </div>
 
     <!-- this row will not appear when printing -->
-    <div class="row m-3">
+    <!-- <div class="row m-3">
         <div class="col-xs-12">
-            <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i>
+            <button class="btn btn-default" window.onload="window.print();"><i class="fa fa-print"></i>
                 Cetak</button>
 
         </div>
-    </div>
+    </div> -->
 </div>
+
+<script>
+window.print();
+window.onafterprint=back;
+function back(){
+    window.close();
+}
+</script>

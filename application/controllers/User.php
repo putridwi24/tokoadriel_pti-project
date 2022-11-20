@@ -149,12 +149,36 @@ class User extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         // queri pemanggilan tabel di DB
-        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_obat');
+        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_barang');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/tabel_stok', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function laporan_tabel_stok()
+    {
+        $data['title'] = 'Tabel Stok Barang';
+        $data['title1'] = 'Tabel Stok Barang Akan Habis';
+        $data['title2'] = 'Tabel Stok Barang Sudah Habis';
+
+
+        $data['habis_stok'] = $this->Data_adriel->habis_stok()->result();
+        $data['almstok'] = $this->Data_adriel->almoststok()->result();
+        $data['stok'] = $this->Data_adriel->stok()->result();
+
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        // queri pemanggilan tabel di DB
+        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_barang');
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/laporan_tabel_stok', $data);
         $this->load->view('templates/footer');
     }
 
@@ -191,6 +215,24 @@ class User extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/tabel_laporan', $data);
+        $this->load->view('templates/footer');
+    }
+
+    
+    public function cetak_tabel_laporan()
+    {
+        $data['title'] = 'Rekapitulasi Bulanan';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        // queri pemanggilan tabel di DB
+        $data['sumJual'] = $this->Data_adriel->count_totaljual();
+        $data['sumBeli'] = $this->Data_adriel->count_totalbeli();
+		$data['report'] = $this->Data_adriel->get_laporan();
+
+        $this->load->view('templates/header', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('templates/topbar', $data);
+        $this->load->view('user/cetak_tabel_laporan', $data);
         $this->load->view('templates/footer');
     }
 
@@ -651,8 +693,8 @@ class User extends CI_Controller
         $data['penjualan'] = $this->Data_adriel->getDataAdriel('tb_penjualan');
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
+        // $this->load->view('templates/sidebar', $data);
+        // $this->load->view('templates/topbar', $data);
         $this->load->view('user/lihat_nota_penjualan', $data);
         $this->load->view('templates/footer');
     }
@@ -676,7 +718,7 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
     
-    public function cetak_nota_pembelian($ref)
+    public function cetak_nota_penjualan($ref)
     {
         $data['title'] = 'Tanda Bukti';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();

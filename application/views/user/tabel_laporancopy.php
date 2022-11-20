@@ -19,7 +19,7 @@
                         <tr>
                             <th>No</th>
                             <th>Bulan</th>
-                            <th>Penjualan</th>
+                            <th>Pembelian</th>
                             <th>Penjualan</th>
                             <th>Laba</th>
                         </tr>
@@ -61,7 +61,7 @@ $(document).ready(function() {
 </script>
 
 <script>
-$('#tahun_beli').datetimepicker({
+$('#gabung').datetimepicker({
 
         format: 'YYYY',
         allowInputToggle: true
@@ -73,7 +73,7 @@ $('#tahun_beli').datetimepicker({
 
 function gabungChart() {
 
-    var tahun_beli = $('#tahun_beli').val();
+    var tahun_beli = $('#gabung').data('date');
 
     $.ajax({
         url: "<?php echo base_url('user/gabung') ?>",

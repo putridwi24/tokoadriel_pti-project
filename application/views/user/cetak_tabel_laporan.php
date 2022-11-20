@@ -20,7 +20,7 @@
                             <th>No</th>
                             <th>Bulan</th>
                             <th>Penjualan</th>
-                            <th>Penjualan</th>
+                            <th>Pembelian</th>
                             <th>Laba</th>
                         </tr>
                     </thead>

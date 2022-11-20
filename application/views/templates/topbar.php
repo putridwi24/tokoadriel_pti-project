@@ -77,7 +77,7 @@
                             </div>
                             <div>
                                 <div class="small text-gray-500"><?= date('j F Y'); ?></div>
-                                <span class="font-weight-bold"><?php echo $hampir_habis ?> Obat akan segera habis
+                                <span class="font-weight-bold"><?php echo $hampir_habis ?> Barang akan segera habis
                                     Stok!</span>
                             </div>
                         </a>
@@ -90,7 +90,7 @@
                             </div>
                             <div>
                                 <div class="small text-gray-500"><?= date('j F Y'); ?></div>
-                                <span class="font-weight-bold"><?php echo $expired ?> Obat yang sudah
+                                <span class="font-weight-bold"><?php echo $expired ?> Barang yang sudah
                                     Kedaluwarsa!</span>
                             </div>
                         </a>
@@ -102,7 +102,7 @@
                             </div>
                             <div>
                                 <div class="small text-gray-500"><?= date('j F Y'); ?></div>
-                                <span class="font-weight-bold"><?php echo $habis ?> Obat sudah habis stok!</span>
+                                <span class="font-weight-bold"><?php echo $habis ?> Barang sudah habis stok!</span>
                             </div>
                         </a>
 

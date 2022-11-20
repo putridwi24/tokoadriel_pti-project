@@ -123,3 +123,10 @@
         </section>
     </div>
 </div>
+<script>
+window.print()
+window.onafterprint=back;
+function back(){
+    window.close();
+}
+</script>
