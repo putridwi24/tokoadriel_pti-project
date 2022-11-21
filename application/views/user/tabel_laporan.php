@@ -4,7 +4,7 @@
             <h6 class="m-0 font-weight-bold text-dark"><?= $title; ?></h6>
         </div>
         <div class="card-body">
-            <div class="col-md-2 mb-4">
+            <div class="d-flex flex-row col-md-3 mb-3">
                 <div class="input-group date" id="gabung">
                     <input type="text" name="tahun_beli" id="tahun_beli" class="form-control tahun_beli"
                         required="required" placeholder="Pilih tahun">
@@ -12,10 +12,24 @@
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
+                <div class="p-0 ml-3">
+                <button class="btn btn-primary" id="button1">Print</button> </div>
             </div>
+            <!-- <div class="col-md-2 mb-4">
+                <div class="input-group date row" id="gabung">
+                    <input type="text" name="tahun_beli" id="tahun_beli" class="form-control tahun_beli"
+                        required="required" placeholder="Pilih tahun">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div> -->
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
+                        <tr>
+                            <th class="text-center" colspan=9 id="judul"></th>
+                        </tr>
                         <tr>
                             <th>No</th>
                             <th>Bulan</th>
@@ -43,14 +57,26 @@
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $('#dataTable').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'excel', 'pdf',
-        ]
-    });
-});
+    function printData()
+    {
+        var divToPrint=document.getElementById("dataTable");
+        var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table th, table td {' +
+        'border:0.5px solid #000;' +
+        'padding:0.5em;' +
+        '}' +
+        '</style>';
+        htmlToPrint += divToPrint.outerHTML;
+        newWin= window.open("");
+        newWin.document.write(htmlToPrint);
+        newWin.print();
+        newWin.close();
+    }
+
+    $('#button1').on('click',function(){
+    printData();
+    })
 </script>
 
 
@@ -115,6 +141,8 @@ function gabungChart() {
                     '</tr>';
             }
             $("#labatotal").html(mytotal); //pass the data to your tbody
+            var jdl = 'Rekapitulasi Laba Rugi Tahun ' + tahun_beli;
+            $('#judul').html(jdl)
         }
     })
 }
