@@ -1,6 +1,6 @@
 <div class="container">
     <div class="text-center">
-        <h1>Sistem Informasi Toko Adriel</h1>
+        <h1>TOKO ADRIEL</h1>
         <h3><?= $judul; ?></h3>
         <h6><?= $subjudul; ?></h6>
     </div>
@@ -40,15 +40,6 @@
             </tr> 
         </table>
     </div>
-
-    <!-- this row will not appear when printing -->
-    <!-- <div class="row m-3">
-        <div class="col-xs-12">
-            <button class="btn btn-default" window.onload="window.print();"><i class="fa fa-print"></i>
-                Cetak</button>
-
-        </div>
-    </div> -->
 </div>
 
 <script>

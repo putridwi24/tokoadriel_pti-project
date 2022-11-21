@@ -112,22 +112,14 @@
             <!-- /.row -->
 
             <!-- this row will not appear when printing -->
-            <div class="row m-3">
-                <div class="col-xs-12">
-                <a href="<?= base_url('user/lihat_pembelian/'). $i->ref?>">
-                <button id="send" type="submit" class="btn btn-success">Cetak</button>
-
-                </div>
-            </div>
 
         </section>
     </div>
 </div>
-
 <script>
 window.print();
 window.onafterprint=back;
 function back(){
-    window.open();
+    window.close();
 }
 </script>

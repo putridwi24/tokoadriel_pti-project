@@ -35,7 +35,7 @@
                             <td><?= $data->banyak; ?></td>
                             <td>Rp <?php echo number_format($data->grandtotal) ?></td>
                             <td style=" text-align: center;">
-                                <a href="<?= base_url('user/lihat_nota_penjualan/'). $data->ref?>"><button type="button"
+                                <a href="<?= base_url('user/lihat_nota_penjualan/'). $data->ref?>" target="_blank"><button type="button"
                                         class="sbtn btn-success"><i class="fas fa-file-invoice"></i></button></a>
                                 <a href="<?= base_url('user/hapus_penjualan/'). $data->ref?>"><button type="delete"
                                         class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i

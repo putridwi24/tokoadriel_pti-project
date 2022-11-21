@@ -102,22 +102,14 @@
             <!-- /.row -->
 
             <!-- this row will not appear when printing -->
-            <div class="row m-3">
-                <div class="col-xs-12">
-                <a href="<?php echo base_url('user/lihat_penjualan') ?>">
-                <button id="send" type="submit" class="btn btn-success">Selesai</button>
-
-                </div>
-            </div>
 
         </section>
     </div>
 </div>
-
 <script>
 window.print();
 window.onafterprint=back;
 function back(){
-    window.open();
+    window.close();
 }
 </script>
