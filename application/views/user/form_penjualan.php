@@ -69,13 +69,12 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <a href="<?php echo base_url('user/lihat_penjualan') ?>"><button type="button"
-                                        class="btn btn-danger">Batal</button></a>
+                               <button id="send" type="submit" class="btn btn-success">Simpan</button>
                                 <button id='addpenjualan' class="btn btn-info" type="button"><span
                                         class="fa fa-plus"></span>
                                     Tambah Barang</button>
-                                <button id="send" type="submit" class="btn btn-success">Simpan</button>
-
+                                <a href="<?php echo base_url('user/lihat_penjualan') ?>"><button type="button"
+                                    class="btn btn-danger">Batal</button></a>
                             </div>
                         </div>
                     </form>

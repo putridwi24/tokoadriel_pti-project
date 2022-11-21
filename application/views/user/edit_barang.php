@@ -99,11 +99,11 @@
 
                 <div class="row justify-content-center pt-4 pb-4">
                     <div class="col-1">
-                        <a href="<?= base_url('user/lihat_produk')?>"><button type="button" class="btn btn-danger"
-                                name="batal" id="batal">Batal</button></a>
+                        <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
                     </div>
                     <div class="col-1">
-                        <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
+                        <a href="<?= base_url('user/lihat_produk')?>"><button type="button" class="btn btn-danger"
+                                name="batal" id="batal">Batal</button></a>
                     </div>
                 </div>
             </form>
