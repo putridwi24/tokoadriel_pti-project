@@ -59,7 +59,7 @@
                                 <div class="text-sm-start text-gray-80">Menu <br> Kelola Data</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-plus-square fa-2x text-gray-300"></i>
+                                <i class="fa fa-cogs fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                                 <div class="text-sm-start text-gray-80">Menampilkan Barang kedaluwarsa</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-exclamation-triangle fa-2x text-gray-300"></i>
+                                <i class="fa fa-calendar fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                 <div class="text-sm-start text-gray-80">Menampilkan Barang akan habis</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                <i class="fa fa-exclamation-triangle fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>

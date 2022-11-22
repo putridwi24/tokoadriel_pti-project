@@ -31,7 +31,7 @@
                             <th>No</th>
                             <th>Bulan</th>
                             <th>Penjualan</th>
-                            <th>Penjualan</th>
+                            <th>Pembelian</th>
                             <th>Laba</th>
                         </tr>
                     </thead>
@@ -57,7 +57,7 @@
     function printData()
     {
         var divToPrint=document.getElementById("dataTable");
-        var jdl2 = '<h1 style = "text-align:center; font-family:Helvetica;" class="text-center";>Laporan Stok Barang</h1>';
+        var jdl2 = '<h1 style = "text-align:center; font-family:Helvetica;" class="text-center";>Laporan Laba & Rugi</h1>';
         var jdl1 = '<h1 style = "text-align:center; font-family:Helvetica;" class="text-center";>TOKO ADRIEL</h1>';
         var htmlToPrint = '' +
         '<style type="text/css">' +

@@ -26,7 +26,7 @@
     <!-- Nav Item - Kelola Data -->
     <li class="nav-item <?php if($this->uri->segment(2)=="menukeloladata" || $this->uri->segment(2)=="lihat_supplier" || $this->uri->segment(2)=="form_tambahsupplier" || $this->uri->segment(2)=="edit_supplier" || $this->uri->segment(2)=="lihat_produk" || $this->uri->segment(2)=="form_tambahbarang" || $this->uri->segment(2)=="edit_barang" || $this->uri->segment(2)=="lihat_kategori" || $this->uri->segment(2)=="form_tambahkategori" || $this->uri->segment(2)=="edit_kategori"){echo "active";}?>">
         <a class="nav-link" href="<?= base_url('user/menukeloladata')?>">
-            <i class="fa fa-folder"></i>
+            <i class="fa fa-cogs"></i>
             <span>Kelola Data</span></a>
     </li>
 
