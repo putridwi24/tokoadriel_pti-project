@@ -4,11 +4,11 @@
     <!-- Header Keterangan -->
     <div class="row tile_count justify-content-center" style="text-align:center">
         <div class=" col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
-            <span class="count_top"><i class="fa fa-medkit"></i> Total Barang</span>
+            <span class="count_top"><i class="fa fa-archive"></i> Total Barang</span>
             <div class="count" style="text-align: ;"><?php echo $sumBarang ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
-            <span class="count_top"><i class="fa fa-plus-square"></i> Total Kategori</span>
+            <span class="count_top"><i class="fa fa-th-large"></i> Total Kategori</span>
             <div class="count" style="text-align: ;"><?php echo $sumKat ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
@@ -16,11 +16,11 @@
             <div class="count" style="text-align: ;"><?php echo $sumSupplier ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
-            <span class="count_top"><i class="fa fa-edit"></i> Penjualan </span>
+            <span class="count_top"><i class="fa fa-calculator"></i> Penjualan </span>
             <div class="count" style="text-align: ;"><?php echo number_format($sumJual) ?></div>
         </div>
         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
-            <span class="count_top"><i class="fa fa-edit"></i> Pembelian</span>
+            <span class="count_top"><i class="fa fa-cart-arrow-down"></i> Pembelian</span>
             <div class="count" style="text-align: ;"><?php echo number_format($sumBeli) ?></div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                                 <div class="text-sm-start text-gray-80">Lihat <br>Barang</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-medkit fa-2x text-gray-300 size"></i>
+                                <i class="fas fa-archive fa-2x text-gray-300 size"></i>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                                 <div class="text-sm-start text-gray-80">Lihat <br> Pembelian</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-users fa-2x text-gray-300"></i>
+                                <i class="fa fa-cart-arrow-down fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -93,10 +93,10 @@
                             <div class="col mr-2">
                                 <div class="text-lg-start font-weight-bold text-warning text-uppercase mb-1">
                                     Penjualan</div>
-                                <div class="text-sm-start text-gray-80">Lihat penjualan</div>
+                                <div class="text-sm-start text-gray-80">Lihat Penjualan</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
+                                <i class="fa fa-calculator fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>

@@ -35,7 +35,7 @@
                                 <div class="text-sm-start text-gray-80">Menambahkan <br>data Supplier</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-medkit fa-2x text-gray-300 size"></i>
+                                <i class="fa fa-users fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                 <div class="text-sm-start text-gray-80">Menambahkan <br> Data Barang</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-plus-square fa-2x text-gray-300"></i>
+                                <i class="fa fa-archive fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                 <div class="text-sm-start text-gray-80">Menambahkan <br> Data Kategori</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-users fa-2x text-gray-300"></i>
+                                <i class="fa fa-th-large fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>

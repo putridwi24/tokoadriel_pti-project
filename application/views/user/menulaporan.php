@@ -33,7 +33,7 @@
                                 <div class="text-sm-start text-gray-80">Menampilkan <br> Laporan Stok Barang</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-plus-square fa-2x text-gray-300"></i>
+                                <i class="fa fa fa-archive fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                                 <div class="text-sm-start text-gray-80">Menampilkan <br> Laporan Pembelian</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-plus-square fa-2x text-gray-300"></i>
+                                <i class="fas fa-shopping-cart fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                                 <div class="text-sm-start text-gray-80">Menampilkan <br> Laporan Penjualan</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fa fa-plus-square fa-2x text-gray-300"></i>
+                                <i class="fa fa-calculator fa-2x text-gray-300"></i>
                             </div>
                         </div>
                     </div>
