@@ -334,7 +334,7 @@ class User extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         // queri pemanggilan tabel di DB
-        $data['pemasok'] = $this->Data_adriel->getDataAdriel('tb_pemasok');
+        $data['pemasok'] = $this->Data_adriel->getDataAdriel('tb_supplier');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -688,7 +688,7 @@ class User extends CI_Controller
     {
         $this->Data_adriel->hapus_pmasok($id_pemasok);
         $this->session->set_flashdata('flash', 'dihapus');
-        redirect('user/lihat_pemasok');
+        redirect('user/lihat_supplier');
     }
 
     // TRANSAKSI

@@ -24,7 +24,7 @@
                                     <option value="<?php echo $gs; ?>"><?php echo $gs; ?></option>
                                     <?php  }?>
                                 </select>
-                                <?= form_error('nama_pemasok', '<small class="text-danger pl-3">' ,'</small>'); ?>
+                                <?= form_error('nama_supplier', '<small class="text-danger pl-3">' ,'</small>'); ?>
                             </div>
                         </div>
 

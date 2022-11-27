@@ -195,7 +195,7 @@ class Data_adriel extends CI_Model
     function get_pemasok()
     {
         $data = array();
-        $query = $this->db->get('tb_pemasok')->result_array();
+        $query = $this->db->get('tb_supplier')->result_array();
 
         if( is_array($query) && count ($query) > 0 )
         {
@@ -290,7 +290,7 @@ class Data_adriel extends CI_Model
 
         // hapus pemasok
     public function hapus_pmasok($id_pemasok){
-        $this->db->delete('tb_pemasok', ['id_pemasok' => $id_pemasok]);
+        $this->db->delete('tb_supplier', ['id_supplier' => $id_pemasok]);
     }
 
         // method hapus penjualan
