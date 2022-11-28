@@ -20,16 +20,6 @@
 
                 <div class="row justify-content-center pt-2">
                     <div class="col-2">
-                        <label for="stok" class="col-form-label">Banyak Stok</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="stok" name="stok" class="form-control" value="<?= $barang['stok']; ?>">
-                        <?= form_error('stok', '<small class="text-danger pl-3">' ,'</small>'); ?>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center pt-2">
-                    <div class="col-2">
                         <label for="nama_kat" class="col-form-label">Nama Kategori</label>
                     </div>
                     <div class="col-3">
@@ -43,57 +33,6 @@
                             <?php  endforeach;?>
                         </select>
                         <?= form_error('nama_kat', '<small class="text-danger pl-3">' ,'</small>'); ?>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center pt-2">
-                    <div class="col-2">
-                        <label for="kedaluwarsa" class="col-form-label">Tanggal Kadaluarsa</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="date" id="kedaluwarsa" name="kedaluwarsa" class="form-control"
-                            value="<?= $barang['kedaluwarsa']; ?>">
-                        <?= form_error('kedaluwarsa', '<small class="text-danger pl-3">' ,'</small>'); ?>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center pt-2">
-                    <div class="col-2">
-                        <label for="h_beli" class="col-form-label">Harga Beli</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="h_beli" name="h_beli" class="form-control"
-                            value="<?= $barang['h_beli']; ?>">
-                        <?= form_error('h_beli', '<small class="text-danger pl-3">' ,'</small>'); ?>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center pt-2">
-                    <div class="col-2">
-                        <label for="h_jual" class="col-form-label">Harga Jual</label>
-                    </div>
-                    <div class="col-3">
-                        <input type="text" id="h_jual" name="h_jual" class="form-control"
-                            value="<?= $barang['h_jual']; ?>" readonly>
-                        <?= form_error('h_jual', '<small class="text-danger pl-3">' ,'</small>'); ?>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center pt-2">
-                    <div class="col-2">
-                        <label for="nama_supplier" class="col-form-label">Nama Supplier</label>
-                    </div>
-                    <div class="col-3">
-                        <select type="text" name="nama_supplier" id="nama_supplier" class="form-control">
-                            <?php foreach($get_supplier as $gp) :?>
-                            <?php if ( $gp == $barang['nama_supplier']) :?>
-                            <option value="<?php echo $gp; ?>" selected><?php echo $gp; ?></option>
-                            <?php else :  ?>
-                            <option value="<?php echo $gp; ?>"><?php echo $gp; ?></option>
-                            <?php endif; ?>
-                            <?php  endforeach;?>
-                        </select>
-                        <?= form_error('nama_supplier', '<small class="text-danger pl-3">' ,'</small>'); ?>
                     </div>
                 </div>
 

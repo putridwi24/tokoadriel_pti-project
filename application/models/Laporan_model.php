@@ -39,8 +39,20 @@ class Laporan_model extends CI_Model {
         return $query->result();
     }
 
+    function totalbeli1($tahun2){
+        $query = $this->db->query("SELECT sum(subtotal) AS total from tb_pembelian where YEAR(tgl_beli) = '$tahun2' ORDER BY tgl_beli ASC");
+
+        return $query->result();
+    }
+
     function totaljual($tahun1, $bulanawal, $bulanakhir){
         $query = $this->db->query("SELECT sum(subtotal) AS total from tb_penjualan where YEAR(tgl_beli) = '$tahun1' and MONTH(tgl_beli) BETWEEN '$bulanawal' and '$bulanakhir' ORDER BY tgl_beli ASC");
+
+        return $query->result();
+    }
+
+    function totaljual1($tahun2){
+        $query = $this->db->query("SELECT sum(subtotal) AS total from tb_penjualan where YEAR(tgl_beli) = '$tahun2' ORDER BY tgl_beli ASC");
 
         return $query->result();
     }

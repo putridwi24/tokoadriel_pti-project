@@ -51,6 +51,15 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
+                <!-- notifikasi data berhasil ditambahkan -->
+                <?php if ($this->session->flashdata('flash') ) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Stok Barang Habis <strong>Berhasil</strong> <?= $this->session->flashdata('flash'); ?>!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php endif; ?>
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>

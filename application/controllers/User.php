@@ -567,19 +567,14 @@ class User extends CI_Controller
         
         $data['title'] = 'Ubah Data Barang';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['barang'] = $this->Data_adriel->getBarang($id);
+        $data['barang'] = $this->Data_adriel->getBarang1($id);
 
         $data['get_kat'] = $this->Data_adriel->get_kategori();
-        $data['get_supplier'] = $this->Data_adriel->get_supplier();
+        // $data['get_supplier'] = $this->Data_adriel->get_supplier();
         // $data['barang_edit'] = $this->Data_adriel->edit_data_obat('tb_barang');
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
-        $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
         $this->form_validation->set_rules('nama_kat', 'Kategori', 'required');
-        $this->form_validation->set_rules('kedaluwarsa', 'Kedaluwarsa', 'required');
-        $this->form_validation->set_rules('h_jual', 'Harga Jual', 'required|numeric');
-        $this->form_validation->set_rules('h_beli', 'Harga Beli', 'required|numeric');
-        $this->form_validation->set_rules('nama_supplier', 'Nama Supplier', 'required');
  
 
         if($this->form_validation->run() == FALSE)
@@ -671,11 +666,11 @@ class User extends CI_Controller
     }
 
         // method hapus data obat
-    public function hapus_obat($id)
+    public function hapus_barang($id)
     {
-        $this->Data_adriel->hapus_obat($id);
+        $this->Data_adriel->hapus_barang($id);
         $this->session->set_flashdata('flash', 'dihapus');
-        redirect('user/lihat_obat');
+        redirect('user/lihat_produk');
     }
 
     // method hapus data kategori
@@ -687,11 +682,18 @@ class User extends CI_Controller
     }
     
     // method hapus data kategori
-    public function hapus_pemasok($id_pemasok)
+    public function hapus_pembelian($ref)
     {
-        $this->Data_adriel->hapus_pmasok($id_pemasok);
+        $this->Data_adriel->hapus_pembelian($ref);
         $this->session->set_flashdata('flash', 'dihapus');
-        redirect('user/lihat_supplier');
+        redirect('user/lihat_pembelian');
+    }
+
+    public function hapus_penjualan($ref)
+    {
+        $this->Data_adriel->hapus_penjualan($ref);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('user/lihat_penjualan');
     }
 
     // TRANSAKSI

@@ -59,6 +59,7 @@ class Laporan_controller extends CI_Controller {
         }
 
         else if ($nilaifilter == 3) {
+            $data['totaljual'] = $this->Laporan_model->totaljual1($tahun2);
             $data['judul'] = "Laporan Penjualan PerTahun";
             $data['datafilter'] = $this->Laporan_model->filterbytahun($tahun2);
             $data['subjudul'] = 'Tahun : ' .$tahun2;
@@ -110,6 +111,7 @@ class Laporan_controller extends CI_Controller {
 
         else if ($nilaifilter == 3) {
             $data['judul'] = "Laporan Pembelian PerTahun";
+            $data['totalbeli'] = $this->Laporan_model->totalbeli1($tahun2);
             $data['datafilter'] = $this->Laporan_model->filterbytahun_beli($tahun2);
             $data['subjudul'] = 'Tahun : ' .$tahun2;
              

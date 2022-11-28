@@ -50,6 +50,9 @@ class Data_adriel extends CI_Model
     public function getBarang($id){
         return $this->db->get_where('tb_barang', ['id' => $id])->row_array();
     }
+    public function getBarang1($id){
+        return $this->db->get_where('tb_barang1', ['id' => $id])->row_array();
+    }
     public function getKategori($id_kat){
         return $this->db->get_where('tb_kategori', ['id_kat' => $id_kat])->row_array();
     }
@@ -238,16 +241,11 @@ class Data_adriel extends CI_Model
 
         $data = [
             'nama_barang' => $this->input->post('nama_barang', true),
-            'stok' => $this->input->post('stok', true),
             'nama_kat' => $this->input->post('nama_kat', true),
-            'kedaluwarsa' => $this->input->post('kedaluwarsa', true),
-            'h_jual' => $this->input->post('h_jual', true),
-            'h_beli' => $this->input->post('h_beli', true),
-            'nama_supplier' => $this->input->post('nama_supplier', true),
         ];
 
         $this->db->where('id', $this->input->post('id'));
-        $this->db->update('tb_barang', $data);
+        $this->db->update('tb_barang1', $data);
     }
 
         // method ubah kategori
@@ -283,8 +281,8 @@ class Data_adriel extends CI_Model
     }
 
         // hapus obat
-    public function hapus_obat($id){
-        $this->db->delete('tb_obat', ['id' => $id]);
+    public function hapus_barang($id){
+        $this->db->delete('tb_barang1', ['id' => $id]);
     }
 
         // hapus kategori
@@ -298,15 +296,15 @@ class Data_adriel extends CI_Model
     }
 
         // method hapus penjualan
-    public function hapus_penjualan($id){
-        $this->db->where('id_jual', $id);
+    public function hapus_penjualan($ref){
+        $this->db->where('ref', $ref);
         $this->db->delete('tb_penjualan');
     }
 
             // method hapus penjualan
-    public function hapus_pembelian($id){
-        $this->db->where('id_beli', $id);
-        $this->db->delete('tb_penjualan');
+    public function hapus_pembelian($ref){
+        $this->db->where('ref', $ref);
+        $this->db->delete('tb_pembelian');
     }
 
     // TRASAKSI
