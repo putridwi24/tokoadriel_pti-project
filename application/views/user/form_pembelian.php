@@ -45,10 +45,10 @@
 
 
                         <table id="pembelian" class="table table-bordered">
+                            
                             <thead>
                                 <tr>
                                     <th style="text-align: center">Barang yang dibeli</th>
-                                    <th style="text-align: center">Sisa Stok</th>
                                     <th style="text-align: center">Kategori</th>
                                     <th style="text-align: center">Harga Beli</th>
                                     <th style="text-align: center">Harga Jual</th>
@@ -73,7 +73,6 @@
                                 </tr>
                             </tfoot>
                         </table>
-
 
                         <div class="ln_solid"></div>
                         <div class="form-group">
@@ -140,7 +139,6 @@ addpembelian.onclick = function(event) {
         count + '" name="nama_barang[]" data-stok="#stok' + count + '" data-nama_kat="#nama_kat' + count +
         '" data-h_beli="#h_beli' + count +
         '"><option selected="true" value="" disabled ></option><?php foreach ($get_brg as $gm) { ?><option value="<?php echo $gm; ?>"><?php echo $gm; ?></option><?php  } ?></select>',
-        '<input id="stok' + count + '" name="stok[]" class="form-control stok" readonly >',
         '<input id="nama_kat' + count + '" name="nama_kat[]" class="form-control nama_kat" readonly>',
         '<input id="h_beli' + count +
         '" name="h_beli[]" class="form-control h_beli" required="required">',

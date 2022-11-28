@@ -61,6 +61,7 @@
                             <th>Supplier</th>
                             <th>Kedaluwarsa</th>
                             <th>Harga Jual</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,6 +77,11 @@
                             <td><?= $data->nama_supplier; ?></td>
                             <td><?= date('j F Y',strtotime($data->kedaluwarsa)); ?></td>
                             <td>Rp<?= number_format($data->h_jual); ?></td>
+                            <td>
+                                <a href="<?= base_url('user/hapus_habis_stok/'). $data->id?>"><button type="delete"
+                                        class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i
+                                            class="fas fa-trash"></i></button></a>
+                            </td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

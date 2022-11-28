@@ -25,10 +25,6 @@
                             <th>No</th>
                             <th>Nama Barang</th>
                             <th>Kategori</th>
-                            <th>Stok</th>
-                            <th>Supplier</th>
-                            <th>Kedaluwarsa</th>
-                            <th>Harga Jual</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -41,10 +37,6 @@
                             <td><?= $i++; ?></td>
                             <td><?= $data->nama_barang; ?></td>
                             <td><?= $data->nama_kat; ?></td>
-                            <td><?= $data->stok; ?></td>
-                            <td><?= $data->nama_supplier; ?></td>
-                            <td><?= $data->kedaluwarsa; ?></td>
-                            <td>Rp<?= number_format($data->h_jual); ?></td>
                             <td>
                                 <a href="<?= base_url('user/edit_barang/'). $data->id?>"><button type="edit"
                                         class="sbtn btn-success"><i class="fas fa-edit"></i></button></a>

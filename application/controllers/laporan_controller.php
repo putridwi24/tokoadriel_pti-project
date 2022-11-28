@@ -47,19 +47,10 @@ class Laporan_controller extends CI_Controller {
         $bulanakhir = $this->input->post('bulanakhir');
         $nilaifilter = $this->input->post('nilaifilter');
 
-        if ($nilaifilter == 1) {
-            $data['judul'] = "Laporan Penjualan Pertanggal";
-            $data['datafilter'] = $this->Laporan_model->filterbytanggal($tanggalawal, $tanggalakhir);
-            $data['subjudul'] = "Dari Tanggal : ".date('j F Y',strtotime($tanggalawal)). '<br>Sampai tanggal : '. date('j F Y',strtotime($tanggalakhir));
-
-            $this->load->view('templates/header', $data);
-            $this->load->view('user/cetak_laporan_penjualan', $data);
-            $this->load->view('templates/footer');
-        }
-
-        else if ($nilaifilter == 2) {
+        if ($nilaifilter == 2) {
             $data['judul'] = "Laporan Penjualan PerBulan";
             $data['datafilter'] = $this->Laporan_model->filterbybulan($tahun1, $bulanawal, $bulanakhir);
+            $data['totaljual'] = $this->Laporan_model->totaljual($tahun1, $bulanawal, $bulanakhir);
             $data['subjudul'] = "Dari Bulan : ".$bulanawal. '<br>Sampai Bulan : '. $bulanakhir. '<br>Tahun: '.$tahun1;
             
             $this->load->view('templates/header', $data);
@@ -106,19 +97,10 @@ class Laporan_controller extends CI_Controller {
         $bulanakhir = $this->input->post('bulanakhir');
         $nilaifilter = $this->input->post('nilaifilter');
 
-        if ($nilaifilter == 1) {
-            $data['judul'] = "Laporan Pembelian Pertanggal";
-            $data['datafilter'] = $this->Laporan_model->filterbytanggal_beli($tanggalawal, $tanggalakhir);
-            $data['subjudul'] = "Dari Tanggal : ".date('j F Y',strtotime($tanggalawal)). '<br>Sampai tanggal : '. date('j F Y',strtotime($tanggalakhir));
-
-            $this->load->view('templates/header', $data);
-            $this->load->view('user/cetak_laporan_pembelian', $data);
-            $this->load->view('templates/footer');
-        }
-
-        else if ($nilaifilter == 2) {
+        if ($nilaifilter == 2) {
             $data['judul'] = "Laporan Pembelian PerBulan";
             $data['datafilter'] = $this->Laporan_model->filterbybulan_beli($tahun1, $bulanawal, $bulanakhir);
+            $data['totalbeli'] = $this->Laporan_model->totalbeli($tahun1, $bulanawal, $bulanakhir);
             $data['subjudul'] = "Dari Bulan : ".$bulanawal. '<br>Sampai Bulan : '. $bulanakhir. '<br>Tahun: '.$tahun1;
             
             $this->load->view('templates/header', $data);

@@ -5,30 +5,6 @@
         </div>
 
         <div class="card mt-3 mr-3 ml-3">
-            <h5 class="card-header">Cetak Laporan Pertanggal</h5>
-            <div class="card-body">
-                <form action="<?php echo base_url('laporan_controller/cetak_laporan_pembelian');?>" method="POST"
-                    target="_BLANK">
-
-                    <input type="hidden" name="nilaifilter" value="1">
-
-                    <div class="row">
-                        <div class="col form-group">
-                            <label for="tanggalawal" class="font-weight-bold">Mulai Tanggal :</label>
-                            <input type="date" id="tanggalawal" class="form-control" name="tanggalawal" required>
-                        </div>
-                        <div class="col form-group">
-                            <label for="tanggalakhir" class="font-weight-bold">Sampai Tanggal :</label>
-                            <input type="date" id="tanggalakhir" class="form-control" name="tanggalakhir" required>
-                        </div>
-                    </div>
-                    <button type="submit" id="submit" name="submit" class="btn btn-success ">Cetak
-                        Laporan</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="card mt-3 mr-3 ml-3">
             <h5 class="card-header">Cetak Laporan Perbulan</h5>
             <div class="card-body">
                 <form action="<?php echo base_url('laporan_controller/cetak_laporan_pembelian');?>" method="POST"

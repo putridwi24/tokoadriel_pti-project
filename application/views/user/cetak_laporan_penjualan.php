@@ -31,13 +31,16 @@
             </tr>
             <?php endforeach; ?>
 
+            <?php 
+            foreach( $totaljual as $data) : ?>
             <tr>
                 <td style="text-align:center; vertical-align: middle" colspan="5"><b>
                         Total</b></td>
                 <td id="val">
-                Rp <?= number_format($subtotal += $data->subtotal);?>
+                Rp <?= $data->total;?>
                 </td>
-            </tr> 
+            </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 </div>

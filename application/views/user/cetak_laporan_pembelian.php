@@ -30,13 +30,17 @@
                 <td>Rp <?= number_format($data->subtotal); ?></td>
             </tr>
             <?php endforeach; ?>
-
+            
+            <?php 
+            foreach( $totalbeli as $data) : ?>
             <tr>
                 <td style="text-align:center; vertical-align: middle" colspan="5"><b>
                         Total</b></td>
                 <td id="val">
-                Rp <?= number_format($subtotal += $data->subtotal);?>
+                Rp <?= $data->total;?>
                 </td>
+            </tr>
+            <?php endforeach; ?>
         </table>
     </div>
 

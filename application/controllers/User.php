@@ -160,11 +160,7 @@ class User extends CI_Controller
 
     public function laporan_tabel_stok()
     {
-        $data['title'] = 'Tabel Stok Barang';
-        $data['title1'] = 'Tabel Stok Barang Akan Habis';
-        $data['title2'] = 'Tabel Stok Barang Sudah Habis';
-
-
+        $data['title'] = 'Laporan Stok Barang';
         $data['habis_stok'] = $this->Data_adriel->habis_stok()->result();
         $data['almstok'] = $this->Data_adriel->almoststok()->result();
         $data['stok'] = $this->Data_adriel->stok()->result();
@@ -317,7 +313,7 @@ class User extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         // queri pemanggilan tabel di DB
-        $data['barang'] = $this->Data_adriel->getDataAdriel('tb_barang');
+        $data['barang'] = $this->Data_adriel->getDataAdriel('tb_barang1');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -667,6 +663,13 @@ class User extends CI_Controller
 
     // WILAYAH HAPUS HAPUS DATA
 
+    public function hapus_habis_stok($id)
+    {
+        $this->Data_adriel->hapus_habis_stok($id);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('user/tabel_stok');
+    }
+
         // method hapus data obat
     public function hapus_obat($id)
     {
@@ -701,7 +704,7 @@ class User extends CI_Controller
     function product()
 	{
 	    $nama_barang=$this->input->post('nama_barang');
-        $data=$this->Data_adriel->get_product($nama_barang);
+        $data=$this->Data_adriel->get_product1($nama_barang);
         echo json_encode($data);
 	}
 

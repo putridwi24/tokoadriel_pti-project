@@ -19,7 +19,7 @@ class Data_adriel extends CI_Model
             'nama_kat' => $this->input->post('nama_kat', true),
         ];
 
-        $this->db->insert('tb_barang', $data);
+        $this->db->insert('tb_barang1', $data);
     }
     
     // method tambah kategori
@@ -278,6 +278,10 @@ class Data_adriel extends CI_Model
 
     // WILAYAH MODEL HAPUS DATA
 
+    public function hapus_habis_stok($id){
+        $this->db->delete('tb_barang', ['id' => $id]);
+    }
+
         // hapus obat
     public function hapus_obat($id){
         $this->db->delete('tb_obat', ['id' => $id]);
@@ -332,6 +336,26 @@ class Data_adriel extends CI_Model
         return $hasil;
     }
 
+    function get_product1($nama_barang)
+    {  
+        $hasil = array();
+        $hsl=$this->db->query("SELECT * FROM tb_barang1 WHERE nama_barang='$nama_barang'");
+        if($hsl->num_rows()>0){
+            foreach ($hsl->result() as $data) {
+                $hasil=array(
+                    'nama_barang' => $data->nama_barang,
+                    // 'stok' => $data->stok,
+                    'nama_kat' => $data->nama_kat,
+                    // 'h_jual' => $data->h_jual,
+                    // 'h_beli' => $data->h_beli,
+                    // 'kedaluwarsa' => $data->kedaluwarsa,
+                    'id' => $data->id
+                    );
+            }
+        }
+        return $hasil;
+    }
+
     function get_productid($id)
     {  
         $hasil = array();
@@ -355,7 +379,7 @@ class Data_adriel extends CI_Model
     function get_brg()
     {
         $data = array();
-        $query = $this->db->get('tb_barang')->result_array();
+        $query = $this->db->get('tb_barang1')->result_array();
 
         if( is_array($query) && count ($query) > 0 )
         {
@@ -426,6 +450,7 @@ class Data_adriel extends CI_Model
     function tambah_pembelian(){
 		 
 			$nama_supplier = $this->input->post('nama_supplier');
+            $nama_kat = $this->input->post('nama_kat');
 			$tgl_beli = date("Y-m-d",strtotime($this->input->post('tgl_beli')));
 			$grandtotal = $this->input->post('grandtotal');
 			$ref = generateRandomString();
@@ -449,17 +474,28 @@ class Data_adriel extends CI_Model
                 'kedaluwarsa' => $kedaluwarsa[$key],
 				'banyak' => $banyak[$key],
 				'subtotal' => $subtotal[$key],
-				 
 				);
 
-		$this->db->set('stok', 'stok+'.$banyak[$key], FALSE);
-        $this->db->set('kedaluwarsa', $kedaluwarsa[$key]);
-        $this->db->set('nama_supplier', $nama_supplier);
-        $this->db->set('h_jual', $h_jual[$key], FALSE);
-        $this->db->set('h_beli', $h_beli[$key], FALSE);
-	    $this->db->where('nama_barang', $val);
-	    $updated = $this->db->update('tb_barang');
-		
+        $data1[] = array(
+                'nama_barang' => $val,
+                'stok' => $banyak[$key],
+                'kedaluwarsa' => $kedaluwarsa[$key],
+                'h_beli' => $h_beli[$key],
+                'h_jual' => $h_jual[$key],
+                'nama_supplier' => $nama_supplier,
+                'nama_kat' => $nama_kat[$key],
+                );
+        $this->db->insert_batch('tb_barang', $data1);	
+
+		// $this->db->set('stok', 'stok+'.$banyak[$key], FALSE);
+        // $this->db->set('nama_kat', $nama_kat);
+        // $this->db->set('nama_barang', $nama_barang);
+        // $this->db->set('kedaluwarsa', $kedaluwarsa[$key]);
+        // $this->db->set('nama_supplier', $nama_supplier);
+        // $this->db->set('h_jual', $h_jual[$key], FALSE);
+        // $this->db->set('h_beli', $h_beli[$key], FALSE);
+	    // $updated = $this->db->insert('tb_barang');
+		// $this->db->insert_batch('tb_barang', $data1);	
 		}
 		
 		$this->db->insert_batch('tb_pembelian', $data);	
