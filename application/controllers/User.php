@@ -32,7 +32,7 @@ class User extends CI_Controller
     public function beranda ()
     {
         // menu awal setelah login
-        $data['title'] = 'Halaman Utama';
+        $data['title'] = 'Toko Adriel';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -52,7 +52,7 @@ class User extends CI_Controller
     public function menukeloladata ()
     {
         // menu awal setelah login
-        $data['title'] = 'Halaman Utama';
+        $data['title'] = 'Kelola Data';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -72,7 +72,7 @@ class User extends CI_Controller
     public function menulaporan ()
     {
         // menu awal setelah login
-        $data['title'] = 'Halaman Utama';
+        $data['title'] = 'Laporan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -86,7 +86,7 @@ class User extends CI_Controller
     public function laporan_total ()
     {
         // menu awal setelah login
-        $data['title'] = 'Halaman Utama';
+        $data['title'] = 'Toko Adriel';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -114,7 +114,7 @@ class User extends CI_Controller
     // Tabel kedaluwarsa
     public function tabel_kedaluwarsa()
     {
-        $data['title'] = 'Tabel Kedaluwarsa';
+        $data['title'] = 'Tabel Kadaluarsa';
         $data['title1'] = 'Tabel Barang Akan Kedaluwarsa';
         $data['title2'] = 'Tabel Barang Sudah Kedaluwarsa';
 
