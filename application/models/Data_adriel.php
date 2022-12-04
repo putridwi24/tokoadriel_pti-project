@@ -11,7 +11,7 @@ class Data_adriel extends CI_Model
         return $this->db->get($table)->result();
     }
 
-        // method tambah obat
+        // method tambah barang
     public function tambah_barang(){
 
         $data = [
@@ -178,7 +178,7 @@ class Data_adriel extends CI_Model
 
     // JOIN TABEL
 
-    // ambil kategori muncul di form obat
+    // ambil kategori muncul di form barang
     public function get_kategori()
     {
         $data = array();
@@ -228,7 +228,7 @@ class Data_adriel extends CI_Model
     }
 
 
-    // edit data obat biar bisa muncul pemasok kategori
+    // edit data barang biar bisa muncul pemasok kategori
     public function edit_data_obat($table){      
         return $this->db->get($table)->result();
     }
@@ -236,7 +236,7 @@ class Data_adriel extends CI_Model
 
     // WILAYAH MODEL EDIT DATA
 
-        // method ubah obat
+        // method ubah barang
     public function edit_barang(){
 
         $data = [
@@ -280,7 +280,7 @@ class Data_adriel extends CI_Model
         $this->db->delete('tb_barang', ['id' => $id]);
     }
 
-        // hapus obat
+        // hapus barang
     public function hapus_barang($id){
         $this->db->delete('tb_barang1', ['id' => $id]);
     }
@@ -458,10 +458,12 @@ class Data_adriel extends CI_Model
 			$kedaluwarsa = $this->input->post('kedaluwarsa');
 			$banyak = $this->input->post('banyak');
 			$subtotal = $this->input->post('subtotal');
+			$id = $this->input->post('id');
 
 		foreach($nama_barang as $key=>$val){
 		   
 		$data[] = array(
+                'id' => $id[$key],
 				'nama_supplier' => $nama_supplier,
 				'tgl_beli' => $tgl_beli,
 				'grandtotal' => $grandtotal,
@@ -475,6 +477,7 @@ class Data_adriel extends CI_Model
 				);
 
         $data1[] = array(
+                'id' => $id[$key],
                 'nama_barang' => $val,
                 'stok' => $banyak[$key],
                 'kedaluwarsa' => $kedaluwarsa[$key],

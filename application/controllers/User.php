@@ -148,9 +148,6 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // queri pemanggilan tabel di DB
-        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_barang');
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -167,9 +164,6 @@ class User extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
-        // queri pemanggilan tabel di DB
-        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_barang');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
@@ -191,9 +185,6 @@ class User extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
-
-        // queri pemanggilan tabel di DB
-        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_barang');
 
         $this->load->view('templates/header', $data);
         // $this->load->view('templates/sidebar', $data);
@@ -270,23 +261,6 @@ class User extends CI_Controller
         // $this->load->view('templates/sidebar', $data);
         // $this->load->view('templates/topbar', $data);
         $this->load->view('user/cetak_tabel_laporan', $data);
-        $this->load->view('templates/footer');
-    }
-
-    // method lihat obat
-    public function lihat_obat()
-    {
-        $data['title'] = 'Lihat Obat';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        // queri pemanggilan tabel di DB
-        $data['obat'] = $this->Data_adriel->getDataAdriel('tb_obat');
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/lihat_obat', $data);
         $this->load->view('templates/footer');
     }
 
@@ -393,39 +367,6 @@ class User extends CI_Controller
 
 
     // WILAYAH INPUT INPUT DATA
-
-        // method form pemasok
-    public function form_obat()
-    {
-        $data['title'] = 'Tambah Obat';
-        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        $data['get_kat'] = $this->Data_adriel->get_kategori();
-        $data['get_pemasok'] = $this->Data_adriel->get_pemasok();
-
-        $this->form_validation->set_rules('nama_obat', 'Nama Pemasok', 'required');
-        $this->form_validation->set_rules('penyimpanan', 'Penyimpanan', 'required');
-        $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
-        $this->form_validation->set_rules('nama_kat', 'Kategori', 'required');
-        $this->form_validation->set_rules('kedaluwarsa', 'Kedaluwarsa', 'required');
-        $this->form_validation->set_rules('harga_jual', 'Harga Jual', 'required|numeric');
-        $this->form_validation->set_rules('harga_beli', 'Harga Beli', 'required|numeric');
-        $this->form_validation->set_rules('nama_pemasok', 'Nama Pemasok', 'required');
- 
-        if($this->form_validation->run() == FALSE)
-        {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar', $data);
-            $this->load->view('user/form_obat', $data);
-            $this->load->view('templates/footer');
-        }
-        else {
-            $this->Data_adriel->tambah_obat();
-            $this->session->set_flashdata('flash','ditambahkan');
-            redirect('user/lihat_obat');
-        }
-    }
 
     public function form_tambahbarang()
     {
@@ -561,7 +502,7 @@ class User extends CI_Controller
 
     // WILAYAH EDIT EDIT DATA //
 
-        // edit obat 
+        // edit barang
     public function edit_barang($id)
     {
         
@@ -570,8 +511,6 @@ class User extends CI_Controller
         $data['barang'] = $this->Data_adriel->getBarang1($id);
 
         $data['get_kat'] = $this->Data_adriel->get_kategori();
-        // $data['get_supplier'] = $this->Data_adriel->get_supplier();
-        // $data['barang_edit'] = $this->Data_adriel->edit_data_obat('tb_barang');
 
         $this->form_validation->set_rules('nama_barang', 'Nama Barang', 'required');
         $this->form_validation->set_rules('nama_kat', 'Kategori', 'required');
@@ -665,7 +604,7 @@ class User extends CI_Controller
         redirect('user/tabel_stok');
     }
 
-        // method hapus data obat
+        // method hapus data barang
     public function hapus_barang($id)
     {
         $this->Data_adriel->hapus_barang($id);

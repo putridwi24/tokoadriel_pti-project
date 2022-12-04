@@ -48,7 +48,8 @@
                             
                             <thead>
                                 <tr>
-                                    <th style="text-align: center">Barang yang dibeli</th>
+                                    <th style="text-align: center">Id Barang</th>
+                                    <th style="text-align: center">Nama Barang</th>
                                     <th style="text-align: center">Kategori</th>
                                     <th style="text-align: center">Harga Beli</th>
                                     <th style="text-align: center">Harga Jual</th>
@@ -135,6 +136,8 @@ var count = 1;
 
 addpembelian.onclick = function(event) {
     pembelian.row.add([
+        '<input id="id' + count +
+        '" name="id[]" class="form-control id" required="required">',
         '<select required="required" style="width:100%;" class="form-control nama_barang" id="nama_barang' +
         count + '" name="nama_barang[]" data-stok="#stok' + count + '" data-nama_kat="#nama_kat' + count +
         '" data-h_beli="#h_beli' + count +

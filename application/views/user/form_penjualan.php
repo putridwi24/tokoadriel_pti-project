@@ -40,7 +40,7 @@
                             <thead>
                                 <tr>
                                     <th style="text-align: center">Id Barang</th>
-                                    <th style="text-align: center">Barang yang dijual</th>
+                                    <th style="text-align: center">Nama Barang</th>
                                     <th style="text-align: center">Sisa Stok</th>
                                     <th style="text-align: center">Kategori</th>
                                     <th style="text-align: center">Harga</th>
