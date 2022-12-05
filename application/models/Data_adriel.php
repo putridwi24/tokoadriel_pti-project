@@ -33,7 +33,7 @@ class Data_adriel extends CI_Model
         $this->db->insert('tb_kategori', $data);
     }
 
-    // method tambah pemasok
+    // method tambah supplier
     public function tambah_supplier(){
 
         $data = [
@@ -137,7 +137,7 @@ class Data_adriel extends CI_Model
         return $totKat;    
     }
  
-    // total pemasok
+    // total supplier
     public function total_supplier(){       
       $tp =  $this->db->query('SELECT * FROM tb_supplier'); 
         $sup = $tp->num_rows();
@@ -195,22 +195,6 @@ class Data_adriel extends CI_Model
         return $data;
     }  
 
-    function get_pemasok()
-    {
-        $data = array();
-        $query = $this->db->get('tb_supplier')->result_array();
-
-        if( is_array($query) && count ($query) > 0 )
-        {
-        foreach ($query as $row ) 
-        {
-          $data[$row['nama_pemasok']] = $row['nama_pemasok'];
-        }
-        }
-        asort($data);
-        return $data;
-    }
-
     function get_supplier()
     {
         $data = array();
@@ -226,13 +210,6 @@ class Data_adriel extends CI_Model
         asort($data);
         return $data;
     }
-
-
-    // edit data barang biar bisa muncul pemasok kategori
-    public function edit_data_obat($table){      
-        return $this->db->get($table)->result();
-    }
-
 
     // WILAYAH MODEL EDIT DATA
 
@@ -260,7 +237,7 @@ class Data_adriel extends CI_Model
         $this->db->update('tb_kategori', $data);
     }
 
-        // method ubah pemasok
+        // method ubah supplier
     public function edit_supplier(){
 
         $data = [
@@ -290,9 +267,9 @@ class Data_adriel extends CI_Model
         $this->db->delete('tb_kategori', ['id_kat' => $id_kat]);
     }
 
-        // hapus pemasok
-    public function hapus_pmasok($id_pemasok){
-        $this->db->delete('tb_supplier', ['id_supplier' => $id_pemasok]);
+        // hapus supplier
+    public function hapus_supplier($id_supplier){
+        $this->db->delete('tb_supplier', ['id_supplier' => $id_supplier]);
     }
 
         // method hapus penjualan
@@ -306,13 +283,6 @@ class Data_adriel extends CI_Model
         $this->db->where('ref', $ref);
         $this->db->delete('tb_pembelian');
     }
-
-    // TRASAKSI
-    function getmedbysupplier($nama_pemasok){
-        $hasil=$this->db->query("SELECT * FROM tb_obat WHERE nama_pemasok='$nama_pemasok'");
-        return $hasil->result();
-    }
-
     
     function get_product($nama_barang)
     {  

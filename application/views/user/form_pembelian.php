@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-3">
                                 <select name="nama_supplier" id="nama_supplier"
-                                    class="select2_single form-control nama_pemasok" tabindex="-1" required="required">
+                                    class="select2_single form-control nama_supplier" tabindex="-1" required="required">
                                     <option selected="true" value="" disabled></option>
                                     <?php foreach($get_supplier as $gs){ ?>
                                     <option value="<?php echo $gs; ?>"><?php echo $gs; ?></option>

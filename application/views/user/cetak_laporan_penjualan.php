@@ -12,7 +12,7 @@
             <tr>
                 <th>No Referensi</th>
                 <th>Nama Pembeli</th>
-                <th>Nama Obat</th>
+                <th>Nama Barang</th>
                 <th>Tanggal Transaksi</th>
                 <th>Banyak</th>
                 <th>Grandtotal</th>

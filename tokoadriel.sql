@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2022 at 10:10 AM
+-- Generation Time: Dec 05, 2022 at 12:13 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -72,12 +72,32 @@ CREATE TABLE `tb_barang` (
 --
 
 INSERT INTO `tb_barang` (`id`, `nama_barang`, `stok`, `kedaluwarsa`, `h_jual`, `h_beli`, `nama_supplier`, `nama_kat`) VALUES
-(63, 'Aqua', 10, '2022-11-30', 5000, 4000, 'Bina San Prima', 'Makanan'),
-(75, 'Coca Cola', 3, '2022-11-29', 9000, 8999, 'S', 'Minuman'),
-(76, 'Sprite', 3, '2022-11-30', 10000, 9000, 'S', 'Minuman'),
-(77, 'Fanta', 9, '2023-12-20', 6000, 5500, 'Sari Roti', 'Minuman'),
-(78, 'Pepsi', 28, '0000-00-00', 7000, 8000, 'Bina San Prima', 'Minuman'),
-(80, 'Pepsi', 6, '0000-00-00', 7000, 8000, 'Bina San Prima', 'Minuman');
+(91, 'Aqua', 10, '2022-12-28', 9000, 8000, 'Antarmitra Sembada', 'Minuman'),
+(92, 'Indomie Kari Ayam', 9, '2022-12-13', 3000, 2000, 'Belibis', 'Makanan Instan'),
+(43234, 'Aqua', 5, '2023-01-01', 6000, 5500, 'Mensa Binasukses', 'Minuman');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_barang1`
+--
+
+CREATE TABLE `tb_barang1` (
+  `id` int(20) NOT NULL,
+  `nama_barang` varchar(128) NOT NULL,
+  `nama_kat` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_barang1`
+--
+
+INSERT INTO `tb_barang1` (`id`, `nama_barang`, `nama_kat`) VALUES
+(1, 'Coca Cola', 'Minuman'),
+(2, 'Aqua', 'Minuman'),
+(3, 'Indomie Kari Ayam', 'Makanan Instan'),
+(4, 'Pepsi', 'Minuman Kaleng'),
+(5, 'Pepsi', 'Minuman Kaleng');
 
 -- --------------------------------------------------------
 
@@ -96,8 +116,8 @@ CREATE TABLE `tb_kategori` (
 --
 
 INSERT INTO `tb_kategori` (`id_kat`, `nama_kat`, `desk_kat`) VALUES
-(45, 'Minuman', 'Air mineral botol'),
-(52, 'Makanan', 'aaa');
+(45, 'Minuman Kaleng', 'Minuman dalam kaleng'),
+(52, 'Makanan Instan', 'Makanan yang praktis');
 
 -- --------------------------------------------------------
 
@@ -107,6 +127,7 @@ INSERT INTO `tb_kategori` (`id_kat`, `nama_kat`, `desk_kat`) VALUES
 
 CREATE TABLE `tb_pembelian` (
   `id_beli` int(11) NOT NULL,
+  `id` int(20) NOT NULL,
   `ref` varchar(128) NOT NULL,
   `nama_barang` varchar(128) NOT NULL,
   `h_beli` int(11) NOT NULL,
@@ -123,11 +144,12 @@ CREATE TABLE `tb_pembelian` (
 -- Dumping data for table `tb_pembelian`
 --
 
-INSERT INTO `tb_pembelian` (`id_beli`, `ref`, `nama_barang`, `h_beli`, `h_jual`, `banyak`, `subtotal`, `nama_supplier`, `tgl_beli`, `grandtotal`, `kedaluwarsa`) VALUES
-(30, 'bjUdFPnxQ7', 'Pepsi', 8000, 9000, 9, 72000, 'Bina San Prima', '2022-11-08', 72000, '2022-11-30'),
-(31, 'BoQhlLLZGZ', 'Aqua', 4000, 5000, 1, 4000, 'Bina San Prima', '2022-11-13', 12000, '2022-11-30'),
-(32, 'BoQhlLLZGZ', 'Pepsi', 8000, 7000, 1, 8000, 'Bina San Prima', '2022-11-13', 12000, '0000-00-00'),
-(33, 'obvrZ8uEWG', 'Fanta', 5500, 6000, 1, 5500, 'Sari Roti', '2023-06-19', 5500, '2023-12-20');
+INSERT INTO `tb_pembelian` (`id_beli`, `id`, `ref`, `nama_barang`, `h_beli`, `h_jual`, `banyak`, `subtotal`, `nama_supplier`, `tgl_beli`, `grandtotal`, `kedaluwarsa`) VALUES
+(44, 0, 'zU8yMYi2RP', 'Aqua', 8000, 9000, 15, 120000, 'Antarmitra Sembada', '2022-11-28', 120000, '2022-12-28'),
+(45, 0, 'yZuQNZZLQu', 'Indomie Kari Ayam', 2000, 3000, 20, 40000, 'Belibis', '2022-10-28', 40000, '2022-12-13'),
+(46, 0, 'VfQPkMrAVx', 'Coca Cola', 5000, 6000, 15, 75000, 'Mensa Binasukses', '2022-11-15', 75000, '2022-12-25'),
+(47, 1234567, 'de7M5kHLIJ', 'Aqua', 5500, 6000, 2, 11000, 'Bina San Prima', '2022-12-04', 11000, '2023-01-01'),
+(48, 43234, 'dWUp8B95F8', 'Aqua', 5500, 6000, 5, 27500, 'Mensa Binasukses', '2022-12-05', 27500, '2023-01-01');
 
 -- --------------------------------------------------------
 
@@ -153,10 +175,10 @@ CREATE TABLE `tb_penjualan` (
 --
 
 INSERT INTO `tb_penjualan` (`id_jual`, `id_barang`, `ref`, `nama_barang`, `h_beli`, `banyak`, `subtotal`, `nama_pembeli`, `tgl_beli`, `grandtotal`) VALUES
-(86, 80, 'glIRtHUgFL', 'Pepsi', 8000, 4, 32000, 'samsul', '2022-11-20', 32000),
-(87, 75, 'n0UfansUKd', 'Coca Cola', 8999, 6, 53994, 'Denis', '2022-10-05', 162994),
-(88, 76, 'n0UfansUKd', 'Sprite', 9000, 5, 45000, 'Denis', '2022-10-05', 162994),
-(89, 80, 'n0UfansUKd', 'Pepsi', 8000, 8, 64000, 'Denis', '2022-10-05', 162994);
+(93, 91, 'xiBhAQ8SvN', 'Aqua', 8000, 5, 40000, 'samsul', '2022-11-28', 40000),
+(94, 92, 'BkeNbF7YuX', 'Indomie Kari Ayam', 2000, 11, 22000, 'jeje', '2022-10-31', 22000),
+(95, 93, 'QYGKJDh9tg', 'Coca Cola', 5000, 15, 75000, 'Denis', '2022-11-28', 75000),
+(96, 1234567, 'jQSog2mlvc', 'Aqua', 5500, 2, 11000, 'samsul', '2022-12-04', 11000);
 
 -- --------------------------------------------------------
 
@@ -180,9 +202,7 @@ INSERT INTO `tb_supplier` (`id_supplier`, `nama_supplier`, `alamat_supplier`, `t
 (28, 'Belibis', 'JALAN UDANG I NO 29, Garuntang, Kec. Bumi Waras, Kota Bandar Lampung, Lampung 35227', 721472153),
 (29, 'Bina San Prima', 'JL P. Tembesu No.16 A, Campang Raya, Kec. Tanjungkarang Timur, Kota Bandar Lampung, Lampung 35122', 721788664),
 (30, 'Sapta Sari Tama', 'Jl. Arif Rahman Hakim Blok B No.20, Way Halim Permai, Kec. Sukarame, Kota Bandar Lampung, Lampung 35133', 721706896),
-(31, 'Antarmitra Sembada', 'Jl. Cut Nyak Dien No.76, Palapa, Kec. Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35119', 721263087),
-(33, 'Sari Roti', 'Jl. Nusa Indah', 2147483647),
-(34, 'a', 'a', 1);
+(31, 'Antarmitra Sembada', 'Jl. Cut Nyak Dien No.76, Palapa, Kec. Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35119', 721263087);
 
 -- --------------------------------------------------------
 
@@ -232,6 +252,15 @@ ALTER TABLE `tb_barang`
   ADD KEY `nama_supplier` (`nama_supplier`) USING BTREE;
 
 --
+-- Indexes for table `tb_barang1`
+--
+ALTER TABLE `tb_barang1`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_kat` (`nama_kat`),
+  ADD KEY `nama_kat` (`nama_kat`),
+  ADD KEY `nama_obat` (`nama_barang`);
+
+--
 -- Indexes for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
@@ -271,34 +300,34 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `tb_barang`
+-- AUTO_INCREMENT for table `tb_barang1`
 --
-ALTER TABLE `tb_barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+ALTER TABLE `tb_barang1`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_kategori`
 --
 ALTER TABLE `tb_kategori`
-  MODIFY `id_kat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_kat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `tb_pembelian`
 --
 ALTER TABLE `tb_pembelian`
-  MODIFY `id_beli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_beli` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tb_penjualan`
 --
 ALTER TABLE `tb_penjualan`
-  MODIFY `id_jual` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id_jual` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `tb_supplier`
 --
 ALTER TABLE `tb_supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `user`

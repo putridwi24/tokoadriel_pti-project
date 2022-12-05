@@ -56,12 +56,6 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // $data['sumBarang'] = $this->Data_adriel->total_barang();
-        // $data['sumKat'] = $this->Data_adriel->total_kategori();
-        // $data['sumPemasok'] = $this->Data_adriel->total_pemasok();
-        // $data['sumJual'] = $this->Data_adriel->count_totaljual();
-        // $data['sumBeli'] = $this->Data_adriel->count_totalbeli();
-
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -295,23 +289,6 @@ class User extends CI_Controller
         $this->load->view('user/lihat_produk', $data);
         $this->load->view('templates/footer');
     }
-
-        // method lihat pemasok
-    public function lihat_pemasok()
-    {
-        $data['title'] = 'Lihat Supplier';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        // queri pemanggilan tabel di DB
-        $data['pemasok'] = $this->Data_adriel->getDataAdriel('tb_supplier');
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('user/lihat_pemasok', $data);
-        $this->load->view('templates/footer');
-    }
  
             // method lihat kategori
     public function lihat_kategori()
@@ -418,7 +395,7 @@ class User extends CI_Controller
         }
     }
 
-            // method form pemasok
+            // method form supplier
     public function form_tambahsupplier()
     {
         $data['title'] = 'Tambah Supplier';
@@ -558,7 +535,7 @@ class User extends CI_Controller
         }
     }
 
-    // method ubah pemasok
+    // method ubah supplier
     public function edit_supplier($id_supplier)
     {
         $data['title'] = 'Ubah Supplier';
@@ -610,6 +587,13 @@ class User extends CI_Controller
         $this->Data_adriel->hapus_barang($id);
         $this->session->set_flashdata('flash', 'dihapus');
         redirect('user/lihat_produk');
+    }
+
+    public function hapus_supplier($id_supplier)
+    {
+        $this->Data_adriel->hapus_supplier($id_supplier);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('user/lihat_supplier');
     }
 
     // method hapus data kategori

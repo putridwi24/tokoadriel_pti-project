@@ -2,24 +2,6 @@
 
 <div class="container-fluid">
 
-    <!-- Header Keterangan -->
-    <div class="row tile_count justify-content-center" style="justify-content:center">
-        
-        <!-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
-            <span class="count_top"><i class="fa fa-users"></i> Supplier </span>
-            <div class="count" style="text-align: ;"><?php echo $sumPemasok ?></div>
-        </div>
-        <div class=" col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
-            <span class="count_top"><i class="fa fa-medkit"></i> Total Produk</span>
-            <div class="count" style="text-align: ;"><?php echo $sumObat ?></div>
-        </div>
-        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count p-1 m-1" style="font-size:20px;">
-            <span class="count_top"><i class="fa fa-edit"></i> Total Kategori </span>
-            <div class="count" style="text-align: ;"><?php echo number_format($sumJual) ?></div> -->
-        </div>
-    </div>
-    <!-- /Header Keterangan -->
-
     <!-- Body -->
     
     <div class="row pt-5" style="justify-content:center">

@@ -45,7 +45,7 @@
                                 <a href="<?= base_url('user/edit_supplier/'). $data->id_supplier?>"><button type="edit"
                                         class="sbtn btn-success"><i class="fas fa-edit"></i></button></a>
 
-                                <a href="<?= base_url('user/hapus_pemasok/'). $data->id_supplier?>"><button type="delete"
+                                <a href="<?= base_url('user/hapus_supplier/'). $data->id_supplier?>"><button type="delete"
                                         class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i
                                             class="fas fa-trash"></i></button></a>
             </div>
